@@ -1,0 +1,18 @@
+{
+  "name": "unified-learning-roadmap-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Curated learning roadmap platform with verified pathways, user progress tracking, and editorial curation studio",
+  "scripts": {
+    "start": "node server/src/index.js",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "seed": "npm run seed --prefix server",
+    "make-admin": "node server/scripts/makeAdmin.js",
+    "build": "npm run build --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
