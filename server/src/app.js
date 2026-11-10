@@ -10,6 +10,7 @@ const { sendSuccess, sendError } = require('./utils/responseEnvelope');
 
 // Route modules
 const authRoutes = require('./routes/v1/authRoutes');
+const roadmapRoutes = require('./routes/v1/roadmapRoutes');
 
 const app = express();
 
@@ -50,6 +51,7 @@ app.get('/api/v1/health', (req, res) => {
 
 // Mount API v1 Routers
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/roadmaps', roadmapRoutes);
 
 // Catch-all 404 for unhandled API routes
 app.all('/api/*', (req, res) => {
