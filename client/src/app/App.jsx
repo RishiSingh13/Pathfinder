@@ -9,7 +9,9 @@ import LandingPage from '../pages/LandingPage';
 import CataloguePage from '../pages/CataloguePage';
 import RoadmapPreviewPage from '../pages/RoadmapPreviewPage';
 import AuthPages from '../pages/AuthPages';
+import DashboardPage from '../pages/DashboardPage';
 import NotFoundPage from '../pages/NotFoundPage';
+import ProtectedRoute from './ProtectedRoute';
 
 export default function App() {
   return (
@@ -27,6 +29,16 @@ export default function App() {
               {/* Authentication Routes */}
               <Route path="/login" element={<AuthPages initialMode="login" />} />
               <Route path="/register" element={<AuthPages initialMode="register" />} />
+
+              {/* Private Learner Dashboard */}
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <DashboardPage />
+                  </ProtectedRoute>
+                }
+              />
 
               {/* Catch-all Not Found Route */}
               <Route path="*" element={<NotFoundPage />} />
