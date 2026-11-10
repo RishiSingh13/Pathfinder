@@ -3,6 +3,8 @@ const cors = require('cors');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const crypto = require('crypto');
+const path = require('path');
+const fs = require('fs');
 const env = require('./config/env');
 const { verifyCsrf } = require('./middleware/auth');
 const errorHandler = require('./middleware/errorHandler');
@@ -26,7 +28,11 @@ app.use((req, res, next) => {
 });
 
 // Security headers
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 
 // CORS configuration supporting authenticated cookies
 app.use(
@@ -72,6 +78,24 @@ app.all('/api/*', (req, res) => {
     req
   );
 });
+
+// Serve frontend SPA static files when available
+const clientDistPath = path.resolve(__dirname, '../../client/dist');
+if (fs.existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
+
+  // Wildcard client route handler for HTML5 browser history routing
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api')) {
+      return next();
+    }
+    const indexPath = path.join(clientDistPath, 'index.html');
+    if (fs.existsSync(indexPath)) {
+      return res.sendFile(indexPath);
+    }
+    next();
+  });
+}
 
 // Centralized error handling middleware
 app.use(errorHandler);
