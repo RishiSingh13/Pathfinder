@@ -124,6 +124,7 @@ export const api = {
   // Admin curation
   admin: {
     listRoadmaps: (status) => api.get(`/admin/roadmaps${status ? `?status=${status}` : ''}`),
+    getRoadmap: (idOrSlug) => api.get(`/admin/roadmaps/${idOrSlug}`),
     createRoadmap: (data) => api.post('/admin/roadmaps', data),
     updateRoadmap: (id, data) => api.patch(`/admin/roadmaps/${id}`, data),
     createModule: (roadmapId, data) => api.post(`/admin/roadmaps/${roadmapId}/modules`, data),
@@ -132,8 +133,8 @@ export const api = {
     createTopic: (moduleId, data) => api.post(`/admin/modules/${moduleId}/topics`, data),
     updateTopic: (id, data) => api.patch(`/admin/topics/${id}`, data),
     reorderTopics: (moduleId, orderedIds) => api.put(`/admin/modules/${moduleId}/topics/order`, { orderedIds }),
-    archiveTopic: (id) => api.patch(`/admin/topics/${id}`, { status: 'archived' }),
+    archiveTopic: (id) => api.patch(`/admin/topics/${id}/archive`),
     listReports: (status = 'open', page = 1) => api.get(`/admin/reports?status=${status}&page=${page}`),
-    resolveReport: (id) => api.patch(`/admin/reports/${id}`, { status: 'resolved' }),
+    resolveReport: (id, status = 'resolved') => api.patch(`/admin/reports/${id}`, { status }),
   },
 };

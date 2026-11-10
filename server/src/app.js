@@ -14,6 +14,7 @@ const roadmapRoutes = require('./routes/v1/roadmapRoutes');
 const topicRoutes = require('./routes/v1/topicRoutes');
 const progressRoutes = require('./routes/v1/progressRoutes');
 const reportRoutes = require('./routes/v1/reportRoutes');
+const adminRoutes = require('./routes/v1/adminRoutes');
 
 const app = express();
 
@@ -58,6 +59,7 @@ app.use('/api/v1/roadmaps', roadmapRoutes);
 app.use('/api/v1/roadmaps', topicRoutes);   // topic detail lives under /roadmaps/:slug/topics/:topicKey
 app.use('/api/v1/progress', progressRoutes);
 app.use('/api/v1/reports', reportRoutes);
+app.use('/api/v1/admin', adminRoutes);
 
 // Catch-all 404 for unhandled API routes
 app.all('/api/*', (req, res) => {

@@ -11,6 +11,8 @@ import RoadmapPreviewPage from '../pages/RoadmapPreviewPage';
 import TopicPage from '../pages/TopicPage';
 import AuthPages from '../pages/AuthPages';
 import DashboardPage from '../pages/DashboardPage';
+import AdminDashboard from '../pages/AdminDashboard';
+import AdminRoadmapEditor from '../pages/AdminRoadmapEditor';
 import NotFoundPage from '../pages/NotFoundPage';
 import ProtectedRoute from './ProtectedRoute';
 
@@ -38,6 +40,24 @@ export default function App() {
                 element={
                   <ProtectedRoute>
                     <DashboardPage />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Protected Curator Studio (Admin Only) */}
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute requireAdmin={true}>
+                    <AdminDashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/roadmaps/:slug"
+                element={
+                  <ProtectedRoute requireAdmin={true}>
+                    <AdminRoadmapEditor />
                   </ProtectedRoute>
                 }
               />
