@@ -14,27 +14,38 @@ const problemReportSchema = new mongoose.Schema(
       required: true,
       index: true,
     },
+    // Optional — when the report is about a specific resource within the topic
     resourceId: {
       type: String,
-      required: true,
+      default: null,
+    },
+    roadmapId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Roadmap',
+      index: true,
     },
     reportType: {
       type: String,
-      enum: ['broken_link', 'outdated_content', 'typo_or_error', 'other'],
-      default: 'broken_link',
+      enum: ['broken_link', 'outdated_content', 'incorrect_info', 'missing_resource', 'other'],
+      default: 'other',
       index: true,
     },
-    message: {
+    // Reporter's optional description of the issue
+    description: {
       type: String,
-      required: [true, 'Report message is required'],
+      default: '',
       trim: true,
-      maxlength: [1000, 'Message cannot exceed 1000 characters'],
+      maxlength: [1000, 'Description cannot exceed 1000 characters'],
     },
     status: {
       type: String,
-      enum: ['open', 'resolved'],
+      enum: ['open', 'resolved', 'dismissed'],
       default: 'open',
       index: true,
+    },
+    resolvedAt: {
+      type: Date,
+      default: null,
     },
   },
   {

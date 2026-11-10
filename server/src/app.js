@@ -11,7 +11,9 @@ const { sendSuccess, sendError } = require('./utils/responseEnvelope');
 // Route modules
 const authRoutes = require('./routes/v1/authRoutes');
 const roadmapRoutes = require('./routes/v1/roadmapRoutes');
+const topicRoutes = require('./routes/v1/topicRoutes');
 const progressRoutes = require('./routes/v1/progressRoutes');
+const reportRoutes = require('./routes/v1/reportRoutes');
 
 const app = express();
 
@@ -53,7 +55,9 @@ app.get('/api/v1/health', (req, res) => {
 // Mount API v1 Routers
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/roadmaps', roadmapRoutes);
+app.use('/api/v1/roadmaps', topicRoutes);   // topic detail lives under /roadmaps/:slug/topics/:topicKey
 app.use('/api/v1/progress', progressRoutes);
+app.use('/api/v1/reports', reportRoutes);
 
 // Catch-all 404 for unhandled API routes
 app.all('/api/*', (req, res) => {

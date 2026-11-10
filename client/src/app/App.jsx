@@ -8,6 +8,7 @@ import Footer from '../components/layout/Footer';
 import LandingPage from '../pages/LandingPage';
 import CataloguePage from '../pages/CataloguePage';
 import RoadmapPreviewPage from '../pages/RoadmapPreviewPage';
+import TopicPage from '../pages/TopicPage';
 import AuthPages from '../pages/AuthPages';
 import DashboardPage from '../pages/DashboardPage';
 import NotFoundPage from '../pages/NotFoundPage';
@@ -25,6 +26,7 @@ export default function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/catalogue" element={<CataloguePage />} />
               <Route path="/roadmaps/:slug" element={<RoadmapPreviewPage />} />
+              <Route path="/roadmaps/:slug/topics/:topicKey" element={<TopicPage />} />
 
               {/* Authentication Routes */}
               <Route path="/login" element={<AuthPages initialMode="login" />} />
