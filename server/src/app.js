@@ -67,6 +67,47 @@ app.use('/api/v1/progress', progressRoutes);
 app.use('/api/v1/reports', reportRoutes);
 app.use('/api/v1/admin', adminRoutes);
 
+// Minimal Gemini AI proxy endpoint (keeps API key on the server)
+app.post('/api/v1/ai/chat', async (req, res, next) => {
+  try {
+    const message = String(req.body?.message || '').trim();
+    if (!message) {
+      return sendError(res, 400, 'VALIDATION_ERROR', 'Message is required.', undefined, req);
+    }
+    if (!env.GEMINI_API_KEY) {
+      return sendError(res, 503, 'AI_NOT_CONFIGURED', 'GEMINI_API_KEY is not set.', undefined, req);
+    }
+
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(env.GEMINI_MODEL)}:generateContent`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: 'You are PathFinder AI, a concise engineering learning assistant.' }] },
+          contents: [{ role: 'user', parts: [{ text: message }] }],
+        }),
+        signal: AbortSignal.timeout(25000),
+      }
+    );
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      return sendError(res, 502, 'AI_ERROR', data?.error?.message || 'Gemini request failed.', undefined, req);
+    }
+
+    const reply = (data?.candidates?.[0]?.content?.parts || [])
+      .filter((p) => typeof p?.text === 'string' && !p.thought)
+      .map((p) => p.text)
+      .join('\n')
+      .trim();
+
+    return sendSuccess(res, 200, { reply });
+  } catch (err) {
+    next(err);
+  }
+});
+
 // Catch-all 404 for unhandled API routes
 app.all('/api/*', (req, res) => {
   return sendError(

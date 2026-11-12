@@ -1,10 +1,16 @@
 const app = require('./app');
 const env = require('./config/env');
 const { connectDB, closeDB } = require('./config/db');
+const Roadmap = require('./models/Roadmap');
+const { seedDatabase } = require('../seeds/seed');
 
 async function startServer() {
   try {
     await connectDB();
+
+    if ((await Roadmap.countDocuments()) === 0) {
+      await seedDatabase();
+    }
 
     const server = app.listen(env.PORT, () => {
       console.log(`[Server] REST API listening on port ${env.PORT} (${env.NODE_ENV})`);

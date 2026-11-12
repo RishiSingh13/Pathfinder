@@ -1,8 +1,10 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Sparkles } from 'lucide-react';
 import { AuthProvider } from '../context/AuthContext';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
+import AiAssistantDrawer from '../components/ai/AiAssistantDrawer';
 
 // Pages
 import LandingPage from '../pages/LandingPage';
@@ -17,6 +19,8 @@ import NotFoundPage from '../pages/NotFoundPage';
 import ProtectedRoute from './ProtectedRoute';
 
 export default function App() {
+  const [aiOpen, setAiOpen] = useState(false);
+
   return (
     <BrowserRouter>
       <AuthProvider>
@@ -67,6 +71,21 @@ export default function App() {
             </Routes>
           </div>
           <Footer />
+
+          {!aiOpen && (
+            <button
+              type="button"
+              onClick={() => setAiOpen(true)}
+              className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-brand text-white hover:bg-brand-hover shadow-lg hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2"
+              title="Ask PathFinder AI"
+              aria-label="Open PathFinder AI Assistant"
+            >
+              <Sparkles className="w-5 h-5" />
+              <span className="text-sm font-semibold hidden sm:inline">Ask AI</span>
+            </button>
+          )}
+
+          <AiAssistantDrawer isOpen={aiOpen} onClose={() => setAiOpen(false)} />
         </div>
       </AuthProvider>
     </BrowserRouter>
