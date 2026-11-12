@@ -79,14 +79,14 @@ const dsaRoadmap = {
               description: 'Calculate Big-O time and space complexity for nested loops with variable step sizes.',
               type: 'Conceptual Challenge',
               difficulty: 'Easy',
-              url: 'https://leetcode.com/explore/featured/card/recursion-i/'
+              url: 'https://www.geeksforgeeks.org/dsa/practice-questions-time-complexity-analysis/'
             },
             {
               title: 'Space Complexity in Recursion Call Stacks',
               description: 'Determine the maximum call-stack depth for linear vs binary recursion.',
               type: 'Conceptual Challenge',
               difficulty: 'Medium',
-              url: 'https://neetcode.io/practice'
+              url: 'https://www.geeksforgeeks.org/dsa/g-fact-86/'
             },
             {
               title: 'Asymptotic Analysis Quiz',
@@ -196,7 +196,7 @@ const dsaRoadmap = {
             {
               type: 'Guide',
               title: 'BaseCS: Taking Hash Tables Off The Shelf',
-              url: 'https://medium.com/basecs/taking-hash-tables-off-the-shelf-139cbf10b3de',
+              url: 'https://medium.com/basecs/taking-hash-tables-off-the-shelf-139cbf4752f0',
               source: 'BaseCS by Vaidehi Joshi',
               duration: '20 mins',
               language: 'English',
@@ -330,7 +330,7 @@ const dsaRoadmap = {
             {
               type: 'Article',
               title: 'BaseCS: What’s a Linked List, Anyway?',
-              url: 'https://medium.com/basecs/whats-a-linked-list-anyway-part-1-d8b7e22fede5',
+              url: 'https://medium.com/basecs/whats-a-linked-list-anyway-part-1-d8b7e6508b9d',
               source: 'BaseCS',
               duration: '20 mins',
               language: 'English',
@@ -400,7 +400,7 @@ const dsaRoadmap = {
             {
               type: 'Article',
               title: 'Monotonic Stack Explained',
-              url: 'https://leetcode.com/discuss/study-guide/234922/monotonic-stack-patterns',
+              url: 'https://leetcode.com/discuss/post/2347639/A-comprehensive-guide-and-template-for-monotonic-/',
               source: 'LeetCode Study Guides',
               duration: '30 mins',
               language: 'English',
@@ -533,7 +533,7 @@ const dsaRoadmap = {
             {
               type: 'Guide',
               title: 'BaseCS: Learning to Love Heaps',
-              url: 'https://medium.com/basecs/learning-to-love-heaps-1f3e7c871e32',
+              url: 'https://medium.com/basecs/learning-to-love-heaps-cef2b273a238',
               source: 'BaseCS',
               duration: '20 mins',
               language: 'English',
@@ -592,7 +592,7 @@ const dsaRoadmap = {
             {
               type: 'Pattern Guide',
               title: 'The Sliding Window Pattern Explained',
-              url: 'https://leetcode.com/discuss/study-guide/1773860/sliding-window-for-beginners-problems-template-sample-solutions',
+              url: 'https://www.baeldung.com/cs/sliding-window-algorithm',
               source: 'LeetCode Study Guides',
               duration: '30 mins',
               language: 'English',
@@ -662,7 +662,7 @@ const dsaRoadmap = {
             {
               type: 'Guide & Visualizer',
               title: 'Demystifying Dynamic Programming',
-              url: 'https://www.freecodecamp.org/news/demystifying-dynamic-programming-24fb84a5604a/',
+              url: 'https://www.freecodecamp.org/news/demystifying-dynamic-programming-24fbdb831d3a/',
               source: 'freeCodeCamp',
               duration: '35 mins',
               language: 'English',
@@ -990,7 +990,7 @@ const dbmsRoadmap = {
             {
               type: 'Article',
               title: 'GeeksforGeeks: DBMS 3-Tier Architecture',
-              url: 'https://www.geeksforgeeks.org/three-schema-architecture-block-diagram/',
+              url: 'https://www.geeksforgeeks.org/dbms/introduction-of-3-tier-architecture-in-dbms-set-2/',
               source: 'GeeksforGeeks',
               duration: '20 mins',
               language: 'English',
@@ -1006,7 +1006,7 @@ const dbmsRoadmap = {
               description: 'Identify external views vs conceptual schema boundaries in real-world scenarios.',
               type: 'Conceptual Challenge',
               difficulty: 'Easy',
-              url: 'https://gateoverflow.in/questions/dbms/schema'
+              url: 'https://gateoverflow.in/subject/databases?tab=questions'
             },
             {
               title: 'Data Independence Identification',
@@ -1020,7 +1020,7 @@ const dbmsRoadmap = {
               description: 'Analyze failure recovery and concurrency limitations of operating system flat files.',
               type: 'Conceptual Challenge',
               difficulty: 'Easy',
-              url: 'https://gateoverflow.in/questions/dbms'
+              url: 'https://gateoverflow.in/questions/databases'
             }
           ]
         },
@@ -1069,21 +1069,21 @@ const dbmsRoadmap = {
               description: 'Convert an M:N relationship with descriptive attributes into relational schema with junction table.',
               type: 'Conceptual Challenge',
               difficulty: 'Medium',
-              url: 'https://gateoverflow.in/questions/dbms/er-model'
+              url: 'https://gateoverflow.in/subject/databases?tab=questions'
             },
             {
               title: 'Weak Entity Identification',
               description: 'Determine primary key composition for weak entities with identifying relationships.',
               type: 'Conceptual Challenge',
               difficulty: 'Easy',
-              url: 'https://gateoverflow.in/questions/dbms/weak-entity'
+              url: 'https://gateoverflow.in/422887/gate-cse-2024-set-2-question-10'
             },
             {
               title: 'Cardinality Constraint Verification',
               description: 'Verify maximum and minimum table counts for 1:N relationship mappings.',
               type: 'Conceptual Challenge',
               difficulty: 'Medium',
-              url: 'https://gateoverflow.in/questions/dbms'
+              url: 'https://gateoverflow.in/218954/what-an-interesting-dbms-question'
             }
           ]
         }
@@ -1265,7 +1265,7 @@ const dbmsRoadmap = {
             {
               type: 'Guide',
               title: 'GeeksforGeeks: Finding Attribute Closure and Keys',
-              url: 'https://www.geeksforgeeks.org/finding-attribute-closure-and-candidate-keys-using-functional-dependencies/',
+              url: 'https://www.geeksforgeeks.org/dbms/finding-attribute-closure-and-candidate-keys-using-functional-dependencies/',
               source: 'GeeksforGeeks',
               duration: '20 mins',
               language: 'English',
@@ -1281,21 +1281,21 @@ const dbmsRoadmap = {
               description: 'Given schema R(A,B,C,D,E) and functional dependencies, identify all candidate keys.',
               type: 'Conceptual Challenge',
               difficulty: 'Medium',
-              url: 'https://gateoverflow.in/questions/dbms/candidate-key'
+              url: 'https://gateoverflow.in/tag/candidate-key'
             },
             {
               title: 'Minimal Cover Calculation',
               description: 'Simplify redundant functional dependencies into a canonical minimal cover.',
               type: 'Conceptual Challenge',
               difficulty: 'Medium',
-              url: 'https://gateoverflow.in/questions/dbms/canonical-cover'
+              url: 'https://gateoverflow.in/tag/minimal-cover'
             },
             {
               title: 'Dependency Preservation Check',
               description: 'Verify if a decomposed set of tables preserves all original functional dependencies.',
               type: 'Conceptual Challenge',
               difficulty: 'Hard',
-              url: 'https://gateoverflow.in/questions/dbms/dependency-preservation'
+              url: 'https://gateoverflow.in/869/gate-cse-2002-question-16'
             }
           ]
         },
@@ -1344,21 +1344,21 @@ const dbmsRoadmap = {
               description: 'Determine the highest normal form satisfied by given relation and dependency set.',
               type: 'Conceptual Challenge',
               difficulty: 'Medium',
-              url: 'https://gateoverflow.in/questions/dbms/normal-forms'
+              url: 'https://gateoverflow.in/tag/normal-forms'
             },
             {
               title: 'Lossless Join Decomposition Test',
               description: 'Apply intersection rule to prove whether binary decomposition is guaranteed lossless.',
               type: 'Conceptual Challenge',
               difficulty: 'Medium',
-              url: 'https://gateoverflow.in/questions/dbms/lossless-join-decomposition'
+              url: 'https://www.geeksforgeeks.org/dbms/lossless-decomposition-in-dbms/'
             },
             {
               title: 'BCNF Decomposition Algorithm',
               description: 'Decompose non-BCNF relation into BCNF schemas iteratively.',
               type: 'Conceptual Challenge',
               difficulty: 'Hard',
-              url: 'https://gateoverflow.in/questions/dbms/bcnf'
+              url: 'https://www.geeksforgeeks.org/dbms/boyce-codd-normal-form-bcnf/'
             }
           ]
         }
@@ -1415,7 +1415,7 @@ const dbmsRoadmap = {
               description: 'Calculate maximum number of record pointers given page size, key size, and tree height.',
               type: 'Conceptual Challenge',
               difficulty: 'Medium',
-              url: 'https://gateoverflow.in/questions/dbms/b-trees'
+              url: 'https://www.geeksforgeeks.org/dbms/practice-questions-b-b-trees/'
             },
             {
               title: 'Index Selection for Compound Queries',
@@ -1429,7 +1429,7 @@ const dbmsRoadmap = {
               description: 'Determine selectivity threshold where optimizer switches from index seek to sequential table scan.',
               type: 'Conceptual Challenge',
               difficulty: 'Hard',
-              url: 'https://gateoverflow.in/questions/dbms'
+              url: 'https://www.postgresql.org/docs/current/using-explain.html'
             }
           ]
         },
@@ -1451,7 +1451,7 @@ const dbmsRoadmap = {
             {
               type: 'Course Notes',
               title: 'CMU 15-445: Concurrency Control & Two-Phase Locking',
-              url: 'https://15445.courses.cs.cmu.edu/fall2022/notes/16-concurrencycontrol.pdf',
+              url: 'https://15445.courses.cs.cmu.edu/fall2022/slides/16-twophaselocking.pdf',
               source: 'CMU Database Group',
               duration: '35 mins',
               language: 'English',
@@ -1479,21 +1479,21 @@ const dbmsRoadmap = {
               description: 'Construct serialization precedence graph for interleaved read/write operations to detect cycles.',
               type: 'Conceptual Challenge',
               difficulty: 'Medium',
-              url: 'https://gateoverflow.in/questions/dbms/conflict-serializability'
+              url: 'https://gateoverflow.in/tag/conflict-serializable'
             },
             {
               title: 'Deadlock Detection in Two-Phase Locking',
               description: 'Identify wait-for graph deadlocks and evaluate Wait-Die vs Wound-Wait prevention schemes.',
               type: 'Conceptual Challenge',
               difficulty: 'Medium',
-              url: 'https://gateoverflow.in/questions/dbms/two-phase-locking'
+              url: 'https://gateoverflow.in/118325/gate-cse-2017-set-1-question-42'
             },
             {
               title: 'Isolation Level Anomaly Mapping',
               description: 'Determine which anomalies are permitted under Read Uncommitted, Read Committed, and Repeatable Read.',
               type: 'Conceptual Challenge',
               difficulty: 'Easy',
-              url: 'https://gateoverflow.in/questions/dbms/transactions'
+              url: 'https://www.postgresql.org/docs/current/transaction-iso.html'
             }
           ]
         },
@@ -1530,21 +1530,21 @@ const dbmsRoadmap = {
               description: 'Given a crash state log with checkpoints, determine which transactions need Redo vs Undo.',
               type: 'Conceptual Challenge',
               difficulty: 'Hard',
-              url: 'https://gateoverflow.in/questions/dbms/recovery'
+              url: 'https://cs186berkeley.net/notes/note14/'
             },
             {
               title: 'WAL Protocol Constraint Verification',
               description: 'Explain why dirty data pages cannot be flushed before the corresponding transaction log commit record.',
               type: 'Conceptual Challenge',
               difficulty: 'Medium',
-              url: 'https://gateoverflow.in/questions/dbms'
+              url: 'https://learn.microsoft.com/en-us/troubleshoot/sql/database-engine/database-file-operations/logging-data-storage-algorithms'
             },
             {
               title: 'Checkpoint Recovery Speed Analysis',
               description: 'Calculate recovery speedup achieved by fuzzy checkpointing compared to non-checkpointed logs.',
               type: 'Conceptual Challenge',
               difficulty: 'Medium',
-              url: 'https://gateoverflow.in/questions/dbms'
+              url: 'https://15445.courses.cs.cmu.edu/spring2026/notes/23-recovery.pdf'
             }
           ]
         }
