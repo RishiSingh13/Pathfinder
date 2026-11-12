@@ -137,4 +137,9 @@ export const api = {
     listReports: (status = 'open', page = 1) => api.get(`/admin/reports?status=${status}&page=${page}`),
     resolveReport: (id, status = 'resolved') => api.patch(`/admin/reports/${id}`, { status }),
   },
+
+  // Gemini AI assistant
+  ai: {
+    chat: (payload) => api.post('/ai/chat', payload),
+  },
 };
