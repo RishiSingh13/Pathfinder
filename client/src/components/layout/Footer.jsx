@@ -4,31 +4,31 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-surface border-t border-border mt-auto">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <footer className="bg-espresso text-surface border-t border-border-strong/30 mt-auto shadow-lift">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded bg-brand text-white flex items-center justify-center">
-              <Compass className="w-3.5 h-3.5" />
+          <div className="flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded bg-brand/40 text-brass border border-brass/30 flex items-center justify-center">
+              <Compass className="w-4 h-4 text-brass" />
             </div>
-            <span className="text-sm font-semibold text-ink">PathFinder</span>
-            <span className="text-xs text-ink-muted">· Curated Learning Pathways</span>
+            <span className="text-sm font-semibold text-surface tracking-wide">PathFinder</span>
+            <span className="text-xs text-ink-faint">· Curated Learning Pathways</span>
           </div>
 
-          <div className="flex items-center gap-6 text-xs text-ink-muted">
-            <Link to="/catalogue" className="hover:text-ink transition-colors">
+          <div className="flex items-center gap-6 text-xs text-surface-subtle">
+            <Link to="/catalogue" className="hover:text-brass transition-colors">
               Roadmap Catalogue
             </Link>
-            <Link to="/login" className="hover:text-ink transition-colors">
+            <Link to="/login" className="hover:text-brass transition-colors">
               Learner Sign In
             </Link>
-            <span className="text-ink-faint">Verified Curricula</span>
+            <span className="text-ink-faint/80">Verified Curricula</span>
           </div>
         </div>
 
-        <div className="mt-6 pt-4 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-ink-muted">
+        <div className="mt-8 pt-5 border-t border-surface/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-surface-subtle/70">
           <p>© {new Date().getFullYear()} PathFinder. All educational materials are attributed to their respective authors.</p>
-          <p>Curated for disciplined, self-directed learning without arbitrary gamification.</p>
+          <p className="text-brass/70">Curated for disciplined, self-directed learning with quiet focus.</p>
         </div>
       </div>
     </footer>

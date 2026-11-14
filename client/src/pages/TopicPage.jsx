@@ -41,9 +41,9 @@ const resourceRoleConfig = {
 };
 
 const difficultyConfig = {
-  Easy: 'text-emerald-700 bg-emerald-50 border-emerald-200',
-  Medium: 'text-amber-700 bg-amber-50 border-amber-200',
-  Hard: 'text-red-700 bg-red-50 border-red-200',
+  Easy: 'text-success bg-success-light border-success-border',
+  Medium: 'text-accent bg-accent-light border-accent-border',
+  Hard: 'text-danger bg-danger-light border-danger-border',
 };
 
 // --- Progress status action definitions ---
@@ -52,22 +52,22 @@ const statusActions = [
     status: 'in_progress',
     label: 'Mark In Progress',
     icon: PlayCircle,
-    className: 'border-blue-300 bg-blue-50 text-blue-700 hover:bg-blue-100',
-    activeClassName: 'border-blue-500 bg-blue-100 text-blue-800 ring-2 ring-blue-300',
+    className: 'border-info/40 bg-info-light text-info hover:bg-info-light/80',
+    activeClassName: 'border-info bg-info-light text-info ring-2 ring-info/30',
   },
   {
     status: 'completed',
     label: 'Mark Completed',
     icon: CheckCircle2,
-    className: 'border-emerald-300 bg-emerald-50 text-emerald-700 hover:bg-emerald-100',
-    activeClassName: 'border-emerald-500 bg-emerald-100 text-emerald-800 ring-2 ring-emerald-300',
+    className: 'border-success/40 bg-success-light text-success hover:bg-success-light/80',
+    activeClassName: 'border-success bg-success-light text-success ring-2 ring-success/30',
   },
   {
     status: 'already_know',
     label: 'Already Know This',
     icon: Lightbulb,
-    className: 'border-purple-300 bg-purple-50 text-purple-700 hover:bg-purple-100',
-    activeClassName: 'border-purple-500 bg-purple-100 text-purple-800 ring-2 ring-purple-300',
+    className: 'border-brand/40 bg-brand-light text-brand hover:bg-brand-light/80',
+    activeClassName: 'border-brand bg-brand-light text-brand ring-2 ring-brand/30',
   },
   {
     status: 'not_started',
@@ -341,7 +341,7 @@ export default function TopicPage() {
             {user && isEnrolled && (
               <button
                 onClick={() => openReport(null)}
-                className="text-xs text-ink-muted hover:text-red-600 flex items-center gap-1 transition-colors"
+                className="text-xs text-ink-muted hover:text-danger flex items-center gap-1 transition-colors"
               >
                 <Flag className="w-3 h-3" />
                 Report an issue
@@ -514,7 +514,7 @@ function ResourceCard({ resource, onReport }) {
         {onReport && (
           <button
             onClick={onReport}
-            className="opacity-0 group-hover:opacity-100 transition-opacity text-ink-muted hover:text-red-500 p-1 rounded-md hover:bg-red-50 shrink-0"
+            className="opacity-0 group-hover:opacity-100 transition-opacity text-ink-muted hover:text-danger p-1 rounded-md hover:bg-danger-light shrink-0"
             title="Report an issue with this resource"
           >
             <Flag className="w-3.5 h-3.5" />

@@ -7,36 +7,66 @@ export default {
   theme: {
     extend: {
       colors: {
-        canvas: '#FAF9F6', // Warm, calm background
-        surface: '#FFFFFF', // Clean surface card
-        'surface-subtle': '#F4F3EF', // Elevated subtle neutral
-        border: '#E4E2DC',
-        'border-strong': '#D0CECA',
+        canvas: '#F3EDE4', // Page background (warm beige)
+        surface: '#FBF8F3', // Cards, modals, inputs
+        'surface-subtle': '#EAE2D6', // Hover rows, secondary buttons
+        border: '#D9CDBB', // Default borders, dividers
+        'border-strong': '#BFAE96', // Focus boundaries, scrollbar thumb
         ink: {
-          DEFAULT: '#18181B', // Dark readable text
-          muted: '#52525B',
-          subtle: '#71717A',
-          faint: '#A1A1AA',
+          DEFAULT: '#17120E', // Headings, primary text (rich black-brown)
+          muted: '#4A3F35', // Body, descriptions
+          subtle: '#7A6C5D', // Metadata, icons
+          faint: '#A89A88', // Placeholders, disabled
         },
         brand: {
-          DEFAULT: '#0F766E', // Restrained teal accent
-          hover: '#115E59',
-          light: '#F0FDFA',
-          border: '#CCFBF1',
+          DEFAULT: '#6B4A2F', // Primary buttons, links, active nav
+          hover: '#523822', // Hover states
+          light: '#F1E6D8', // Pills, active tabs, badges
+          border: '#E0CDB3', // Badge outlines
         },
+        espresso: '#14100C', // Dark sections, footer, hero panels, primary CTA alt
+        brass: '#B08D57', // Premium accent: dividers, icons, highlights
         accent: {
-          DEFAULT: '#D97706', // Warm amber for in-progress states
-          light: '#FFFBEB',
-          border: '#FDE68A',
+          DEFAULT: '#B45309', // In-progress / warm amber
+          light: '#FBF1E0',
+          border: '#EBCFA0',
         },
         success: {
-          DEFAULT: '#15803D',
-          light: '#F0FDF4',
-          border: '#BBF7D0',
+          DEFAULT: '#3F6B3A', // Muted forest green
+          light: '#EEF3E8',
+          border: '#C9DBBE',
         },
+        danger: {
+          DEFAULT: '#A8322A', // Warm muted crimson
+          light: '#F9ECE9',
+          border: '#E8C3BD',
+        },
+        info: {
+          DEFAULT: '#3C5A78', // Warm slate blue
+          light: '#EAF0F5',
+          border: '#C3D3E2',
+        },
+      },
+      boxShadow: {
+        soft: '0 1px 2px rgba(43,29,16,.06), 0 1px 1px rgba(43,29,16,.04)',
+        card: '0 4px 12px -2px rgba(43,29,16,.10), 0 2px 4px -2px rgba(43,29,16,.06)',
+        lift: '0 16px 32px -8px rgba(43,29,16,.18), 0 6px 12px -4px rgba(43,29,16,.10)',
+        'inset-glow': 'inset 0 1px 0 rgba(255,255,255,.6)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+      },
+      transitionTimingFunction: {
+        premium: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        pop: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+      },
+      transitionDuration: {
+        fast: '200ms',
+        base: '500ms',
+        slow: '900ms',
+      },
+      letterSpacing: {
+        tightest: '-0.02em',
       },
     },
   },

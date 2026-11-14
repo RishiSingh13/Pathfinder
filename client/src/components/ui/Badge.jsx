@@ -11,19 +11,20 @@ export default function Badge({
     brand: 'bg-brand-light text-brand border-brand-border',
     accent: 'bg-accent-light text-accent border-accent-border',
     success: 'bg-success-light text-success border-success-border',
-    danger: 'bg-red-50 text-red-700 border-red-200',
-    info: 'bg-blue-50 text-blue-700 border-blue-200',
+    danger: 'bg-danger-light text-danger border-danger-border',
+    info: 'bg-info-light text-info border-info-border',
+    brass: 'bg-brand-light text-brass border-brass/40',
   };
 
   const sizes = {
-    xs: 'text-[11px] px-1.5 py-0.5',
+    xs: 'text-[11px] px-2 py-0.5',
     sm: 'text-xs px-2.5 py-0.5',
     md: 'text-sm px-3 py-1',
   };
 
   return (
     <span
-      className={`inline-flex items-center font-medium rounded-full border ${variants[variant] || variants.neutral} ${sizes[size] || sizes.sm} ${className}`}
+      className={`inline-flex items-center font-medium rounded-full border transition-colors shadow-soft ${variants[variant] || variants.neutral} ${sizes[size] || sizes.sm} ${className}`}
     >
       {children}
     </span>

@@ -461,8 +461,8 @@ export default function AdminRoadmapEditor() {
 
       {/* Global Alerts */}
       {statusMessage && (
-        <div className="mb-6 p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+        <div className="mb-6 p-3.5 rounded-xl bg-success-light border border-success-border text-success text-sm flex items-center gap-2 shadow-soft">
+          <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
           <span>{statusMessage}</span>
         </div>
       )}
@@ -629,7 +629,7 @@ export default function AdminRoadmapEditor() {
                               </button>
                               <button
                                 onClick={() => setArchiveTargetTopic(t)}
-                                className="p-1 text-ink-muted hover:text-red-500"
+                                className="p-1 text-ink-muted hover:text-danger transition-colors"
                                 title="Archive topic"
                               >
                                 <Archive className="w-3.5 h-3.5" />
@@ -774,6 +774,17 @@ export default function AdminRoadmapEditor() {
 
               <div className="space-y-1">
                 <label className="block text-xs font-semibold text-ink-muted uppercase tracking-wider">
+                  Intended Audience
+                </label>
+                <Input
+                  value={formData.intendedAudience}
+                  onChange={(e) => setFormData({ ...formData, intendedAudience: e.target.value })}
+                  placeholder="e.g. Junior backend engineers, CS undergraduates"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="block text-xs font-semibold text-ink-muted uppercase tracking-wider">
                   Prerequisites (one per line)
                 </label>
                 <textarea
@@ -821,7 +832,7 @@ export default function AdminRoadmapEditor() {
         <form onSubmit={handleSaveModule} className="space-y-4">
           <div className="space-y-1">
             <label className="block text-xs font-semibold text-ink-muted uppercase tracking-wider">
-              Phase Label <span className="text-red-500">*</span>
+              Phase Label <span className="text-danger">*</span>
             </label>
             <Input
               value={modulePhase}
@@ -833,7 +844,7 @@ export default function AdminRoadmapEditor() {
 
           <div className="space-y-1">
             <label className="block text-xs font-semibold text-ink-muted uppercase tracking-wider">
-              Module Title <span className="text-red-500">*</span>
+              Module Title <span className="text-danger">*</span>
             </label>
             <Input
               value={moduleTitle}
@@ -878,7 +889,7 @@ export default function AdminRoadmapEditor() {
         <form onSubmit={handleSaveTopic} className="space-y-4 max-h-[75vh] overflow-y-auto px-1">
           <div className="space-y-1">
             <label className="block text-xs font-semibold text-ink-muted uppercase tracking-wider">
-              Topic Title <span className="text-red-500">*</span>
+              Topic Title <span className="text-danger">*</span>
             </label>
             <Input
               value={topicTitle}
@@ -891,7 +902,7 @@ export default function AdminRoadmapEditor() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="space-y-1">
               <label className="block text-xs font-semibold text-ink-muted uppercase tracking-wider">
-                Stable Key <span className="text-red-500">*</span>
+                Stable Key <span className="text-danger">*</span>
               </label>
               <Input
                 value={topicKey}
@@ -983,7 +994,7 @@ export default function AdminRoadmapEditor() {
                   <button
                     type="button"
                     onClick={() => handleRemoveResource(rIdx)}
-                    className="text-ink-muted hover:text-red-500"
+                    className="text-ink-muted hover:text-danger transition-colors"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                   </button>
@@ -1061,7 +1072,7 @@ export default function AdminRoadmapEditor() {
                   <button
                     type="button"
                     onClick={() => handleRemovePractice(pIdx)}
-                    className="text-ink-muted hover:text-red-500"
+                    className="text-ink-muted hover:text-danger transition-colors"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                   </button>

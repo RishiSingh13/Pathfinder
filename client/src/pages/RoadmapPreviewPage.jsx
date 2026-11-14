@@ -12,9 +12,7 @@ import {
   Layers,
   ArrowLeft,
   PlayCircle,
-  AlertTriangle,
   HelpCircle,
-  ExternalLink,
 } from 'lucide-react';
 import { api } from '../services/api';
 import { useAuth } from '../context/AuthContext';
@@ -26,6 +24,8 @@ import Modal from '../components/ui/Modal';
 import ProgressFraction from '../components/roadmap/ProgressFraction';
 import ErrorAlert from '../components/ui/ErrorAlert';
 import { Skeleton } from '../components/ui/Skeleton';
+import Pop from '../components/motion/Pop';
+import { Reveal } from '../components/motion/Reveal';
 
 export default function RoadmapPreviewPage() {
   const { slug } = useParams();
@@ -153,7 +153,7 @@ export default function RoadmapPreviewPage() {
     <PageContainer>
       {/* Breadcrumbs */}
       <nav className="flex items-center gap-2 text-xs text-ink-muted mb-6">
-        <Link to="/catalogue" className="hover:text-ink">
+        <Link to="/catalogue" className="hover:text-brand transition-colors">
           Catalogue
         </Link>
         <span>/</span>
@@ -161,14 +161,14 @@ export default function RoadmapPreviewPage() {
       </nav>
 
       {/* Hero Header */}
-      <div className="bg-surface rounded-2xl border border-border p-6 sm:p-8 shadow-sm mb-8 space-y-6">
+      <Pop delay={50} className="bg-surface rounded-2xl border border-border p-6 sm:p-8 shadow-card shadow-inset-glow mb-8 space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
             <Badge variant={levelVariantMap[roadmap.level] || 'neutral'} size="md">
               {roadmap.level}
             </Badge>
-            <span className="text-xs text-ink-muted flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-brand" />
+            <span className="text-xs text-ink-muted flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5 text-brass" />
               ~{roadmap.estimatedHours} hours total ({roadmap.estimatedWeeks} weeks at {roadmap.weeklyPaceHours}h/week)
             </span>
           </div>
@@ -176,8 +176,8 @@ export default function RoadmapPreviewPage() {
           <div className="flex items-center gap-4 text-xs text-ink-muted">
             {roadmap.curator && (
               <span className="flex items-center gap-1.5">
-                <UserCheck className="w-3.5 h-3.5 text-brand" />
-                <span>Curated by <strong>{roadmap.curator}</strong></span>
+                <UserCheck className="w-3.5 h-3.5 text-brass" />
+                <span>Curated by <strong className="text-ink">{roadmap.curator}</strong></span>
               </span>
             )}
             {roadmap.lastReviewedDate && (
@@ -190,7 +190,7 @@ export default function RoadmapPreviewPage() {
         </div>
 
         <div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold text-ink tracking-tight">
+          <h1 className="text-2xl sm:text-4xl font-extrabold text-ink tracking-tight font-serif sm:font-sans">
             {roadmap.title}
           </h1>
           <p className="mt-3 text-base text-ink-muted leading-relaxed">
@@ -199,12 +199,12 @@ export default function RoadmapPreviewPage() {
         </div>
 
         {/* Action Panel based on enrollment & auth state */}
-        <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-surface-subtle -mx-6 -mb-6 sm:-mx-8 sm:-mb-8 p-6 sm:p-8 rounded-b-2xl">
+        <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-surface-subtle/60 -mx-6 -mb-6 sm:-mx-8 sm:-mb-8 p-6 sm:p-8 rounded-b-2xl border-b border-border/80">
           {isEnrolled ? (
             <div className="w-full space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-success animate-pulse" />
                   <span className="text-sm font-bold text-ink">You are enrolled in this roadmap</span>
                   <span className="text-xs text-ink-muted">({userEnrolment.weeklyHours}h/week pace)</span>
                 </div>
@@ -212,7 +212,7 @@ export default function RoadmapPreviewPage() {
                 {progressMetrics?.resumeTopic && (
                   <Link to={`/roadmaps/${slug}/topics/${progressMetrics.resumeTopic.key}`}>
                     <Button variant="primary" size="md">
-                      <PlayCircle className="w-4 h-4 mr-2" />
+                      <PlayCircle className="w-4 h-4 mr-2 text-brass" />
                       Continue: {progressMetrics.resumeTopic.title}
                     </Button>
                   </Link>
@@ -220,7 +220,7 @@ export default function RoadmapPreviewPage() {
               </div>
 
               {progressMetrics && (
-                <div className="max-w-md bg-surface p-3.5 rounded-lg border border-border">
+                <div className="max-w-md bg-surface p-3.5 rounded-lg border border-border shadow-soft">
                   <ProgressFraction
                     completedCoreCount={progressMetrics.completedCoreCount}
                     totalCoreCount={progressMetrics.totalCoreCount}
@@ -241,7 +241,7 @@ export default function RoadmapPreviewPage() {
               </div>
               <Button size="md" onClick={() => setEnrollModalOpen(true)}>
                 Enroll in Roadmap
-                <ArrowRight className="w-4 h-4 ml-1.5" />
+                <ArrowRight className="w-4 h-4 ml-1.5 text-brass" />
               </Button>
             </div>
           ) : (
@@ -255,13 +255,13 @@ export default function RoadmapPreviewPage() {
               <Link to={`/login?redirect=/roadmaps/${slug}`}>
                 <Button size="md">
                   Sign In to Enroll
-                  <ArrowRight className="w-4 h-4 ml-1.5" />
+                  <ArrowRight className="w-4 h-4 ml-1.5 text-brass" />
                 </Button>
               </Link>
             </div>
           )}
         </div>
-      </div>
+      </Pop>
 
       {/* Main Grid: Curriculum Outline & Metadata */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -269,7 +269,7 @@ export default function RoadmapPreviewPage() {
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-ink flex items-center gap-2">
-              <Layers className="w-5 h-5 text-brand" />
+              <Layers className="w-5 h-5 text-brass" />
               Curriculum Outline
             </h2>
             <span className="text-xs text-ink-muted">
@@ -279,7 +279,7 @@ export default function RoadmapPreviewPage() {
           </div>
 
           <div className="space-y-4">
-            {modules.map((m, idx) => {
+            {modules.map((m) => {
               const isExpanded = !!expandedModules[m.id];
               const topicList = m.topics || [];
               const coreCount = topicList.filter((t) => t.type === 'core').length;
@@ -287,7 +287,7 @@ export default function RoadmapPreviewPage() {
               return (
                 <div
                   key={m.id}
-                  className="bg-surface rounded-xl border border-border shadow-xs overflow-hidden transition-colors"
+                  className="bg-surface rounded-xl border border-border shadow-card overflow-hidden transition-all duration-200"
                 >
                   {/* Module Header Bar */}
                   <button
@@ -297,7 +297,7 @@ export default function RoadmapPreviewPage() {
                   >
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-brand">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-brass">
                           {m.phaseLabel}
                         </span>
                         <span className="text-xs text-ink-muted">· ~{m.estimatedHours}h</span>
@@ -313,14 +313,14 @@ export default function RoadmapPreviewPage() {
                         {coreCount} core topics
                       </span>
                       <div className="text-ink-muted">
-                        {isExpanded ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                        {isExpanded ? <ChevronDown className="w-4 h-4 text-brass" /> : <ChevronRight className="w-4 h-4 text-brass" />}
                       </div>
                     </div>
                   </button>
 
                   {/* Topics List */}
                   {isExpanded && (
-                    <div className="border-t border-border/60 divide-y divide-border/40 bg-surface">
+                    <div className="border-t border-border/70 divide-y divide-border/50 bg-surface">
                       {topicList.map((t, tIdx) => (
                         <div
                           key={t.id || t.key}
@@ -361,7 +361,7 @@ export default function RoadmapPreviewPage() {
                               className="text-xs font-semibold text-brand hover:text-brand-hover p-1 rounded hover:bg-brand-light transition-colors"
                               aria-label={`View topic: ${t.title}`}
                             >
-                              <ArrowRight className="w-3.5 h-3.5" />
+                              <ArrowRight className="w-3.5 h-3.5 text-brass" />
                             </Link>
                           </div>
                         </div>
@@ -378,15 +378,15 @@ export default function RoadmapPreviewPage() {
         <div className="space-y-6">
           {/* Prerequisites Card */}
           {roadmap.prerequisites && roadmap.prerequisites.length > 0 && (
-            <Card className="p-5 bg-surface space-y-3">
+            <Card className="p-5 bg-surface space-y-3 shadow-card shadow-inset-glow">
               <h3 className="text-sm font-bold text-ink flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-brand" />
+                <CheckCircle2 className="w-4 h-4 text-brass" />
                 Recommended Prerequisites
               </h3>
               <ul className="space-y-2 text-xs text-ink-muted">
                 {roadmap.prerequisites.map((req, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="text-brand font-bold">·</span>
+                    <span className="text-brass font-bold">·</span>
                     <span>{req}</span>
                   </li>
                 ))}
@@ -396,7 +396,7 @@ export default function RoadmapPreviewPage() {
 
           {/* Scope Boundaries */}
           {roadmap.whatIsOutOfScope && roadmap.whatIsOutOfScope.length > 0 && (
-            <Card className="p-5 bg-surface space-y-3">
+            <Card className="p-5 bg-surface space-y-3 shadow-card shadow-inset-glow">
               <h3 className="text-sm font-bold text-ink flex items-center gap-1.5">
                 <HelpCircle className="w-4 h-4 text-ink-muted" />
                 What is Explicitly Out of Scope
@@ -414,9 +414,9 @@ export default function RoadmapPreviewPage() {
 
           {/* Sample Topic Highlight */}
           {sampleTopic && (
-            <Card className="p-5 bg-surface-subtle border-brand-border space-y-3">
+            <Card className="p-5 bg-surface-subtle/80 border-brand-border space-y-3 shadow-card shadow-inset-glow">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-brand">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-brass">
                   Sample Topic Preview
                 </span>
                 <Badge variant="brand" size="xs">
@@ -437,7 +437,7 @@ export default function RoadmapPreviewPage() {
                   <ul className="text-xs text-ink-muted space-y-1">
                     {sampleTopic.objectives.slice(0, 3).map((obj, i) => (
                       <li key={i} className="flex items-start gap-1.5">
-                        <span className="text-brand font-bold">✓</span>
+                        <span className="text-brass font-bold">✓</span>
                         <span className="line-clamp-1">{obj}</span>
                       </li>
                     ))}
@@ -449,7 +449,7 @@ export default function RoadmapPreviewPage() {
                 <Link to={`/roadmaps/${slug}/topics/${sampleTopic.key}`}>
                   <Button variant="outline" size="sm" className="w-full text-xs">
                     Inspect Full Topic Guide
-                    <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                    <ArrowRight className="w-3.5 h-3.5 ml-1 text-brass" />
                   </Button>
                 </Link>
               </div>
@@ -482,7 +482,7 @@ export default function RoadmapPreviewPage() {
                 max="60"
                 value={weeklyHours}
                 onChange={(e) => setWeeklyHours(e.target.value)}
-                className="w-24 px-3 py-2 bg-surface text-ink text-sm rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-brand"
+                className="w-24 px-3 py-2 bg-surface text-ink text-sm rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-brand shadow-soft"
                 required
               />
               <span className="text-xs text-ink-muted">

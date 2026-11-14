@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Compass,
   PlayCircle,
@@ -26,9 +26,12 @@ import EmptyState from '../components/ui/EmptyState';
 import ErrorAlert from '../components/ui/ErrorAlert';
 import { Skeleton } from '../components/ui/Skeleton';
 import WeeklyPaceModal from '../components/dashboard/WeeklyPaceModal';
+import Pop from '../components/motion/Pop';
+import { Reveal, RevealGroup } from '../components/motion/Reveal';
 
 export default function DashboardPage() {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [dashboardData, setDashboardData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -126,57 +129,62 @@ export default function DashboardPage() {
   return (
     <PageContainer>
       {/* Header */}
-      <div className="mb-8 space-y-1">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-ink tracking-tight">
+      <Pop delay={50} className="mb-8 space-y-1">
+        <div className="text-[11px] font-bold uppercase tracking-widest text-brass">
+          Learner Overview
+        </div>
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-ink tracking-tight font-serif sm:font-sans">
           Welcome back, {user?.displayName}
         </h1>
-        <p className="text-sm text-ink-muted">
+        <p className="text-sm text-ink-muted leading-relaxed">
           Your active learning commitments, core progress fractions, and deterministic next actions.
         </p>
-      </div>
+      </Pop>
 
       {/* Summary KPI Strip */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-        <Card className="p-4 bg-surface">
-          <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
-            <Layers className="w-4 h-4 text-brand" />
-            <span>Active Roadmaps</span>
-          </div>
-          <div className="text-2xl font-extrabold text-ink tabular-nums">
-            {summary.totalEnrolled}
-          </div>
-        </Card>
+      <Pop delay={120}>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+          <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
+            <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
+              <Layers className="w-4 h-4 text-brass" />
+              <span>Active Roadmaps</span>
+            </div>
+            <div className="text-2xl font-extrabold text-ink tabular-nums">
+              {summary.totalEnrolled}
+            </div>
+          </Card>
 
-        <Card className="p-4 bg-surface">
-          <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
-            <CheckCircle2 className="w-4 h-4 text-brand" />
-            <span>Core Completed</span>
-          </div>
-          <div className="text-2xl font-extrabold text-ink tabular-nums">
-            {summary.totalCoreTopicsCompleted}
-          </div>
-        </Card>
+          <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
+            <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
+              <CheckCircle2 className="w-4 h-4 text-brass" />
+              <span>Core Completed</span>
+            </div>
+            <div className="text-2xl font-extrabold text-ink tabular-nums">
+              {summary.totalCoreTopicsCompleted}
+            </div>
+          </Card>
 
-        <Card className="p-4 bg-surface">
-          <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
-            <Clock className="w-4 h-4 text-accent" />
-            <span>Est. Remaining</span>
-          </div>
-          <div className="text-2xl font-extrabold text-ink tabular-nums">
-            ~{summary.totalRemainingHours}h
-          </div>
-        </Card>
+          <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
+            <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
+              <Clock className="w-4 h-4 text-accent" />
+              <span>Est. Remaining</span>
+            </div>
+            <div className="text-2xl font-extrabold text-ink tabular-nums">
+              ~{summary.totalRemainingHours}h
+            </div>
+          </Card>
 
-        <Card className="p-4 bg-surface">
-          <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
-            <Award className="w-4 h-4 text-emerald-600" />
-            <span>Pathways Mastered</span>
-          </div>
-          <div className="text-2xl font-extrabold text-ink tabular-nums">
-            {summary.completedRoadmaps}
-          </div>
-        </Card>
-      </div>
+          <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
+            <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
+              <Award className="w-4 h-4 text-success" />
+              <span>Pathways Mastered</span>
+            </div>
+            <div className="text-2xl font-extrabold text-ink tabular-nums">
+              {summary.completedRoadmaps}
+            </div>
+          </Card>
+        </div>
+      </Pop>
 
       {/* Main Content Layout */}
       {enrolments.length === 0 ? (
@@ -185,7 +193,7 @@ export default function DashboardPage() {
           title="No active roadmap enrollments"
           description="Browse our curated catalogue to choose a sequenced engineering roadmap that fits your learning goals."
           actionLabel="Browse Published Roadmaps"
-          onAction={() => (window.location.href = '/catalogue')}
+          onAction={() => navigate('/catalogue')}
           className="my-8"
         />
       ) : (
@@ -194,21 +202,21 @@ export default function DashboardPage() {
           <section className="space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-bold text-ink flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-brand" />
+                <BookOpen className="w-5 h-5 text-brass" />
                 Active Learning Roadmaps ({enrolments.length})
               </h2>
-              <Link to="/catalogue" className="text-xs font-semibold text-brand hover:underline">
+              <Link to="/catalogue" className="text-xs font-semibold text-brand hover:text-brand-hover hover:underline transition-colors">
                 Explore more roadmaps
               </Link>
             </div>
 
-            <div className="space-y-5">
+            <RevealGroup className="space-y-5">
               {enrolments.map((enrol) => {
                 const { roadmap, metrics, weeklyHours } = enrol;
                 const resumeTopic = metrics.resumeTopic;
 
                 return (
-                  <Card key={enrol.id} className="p-6 bg-surface space-y-5">
+                  <Card key={enrol.id} className="reveal-item p-6 bg-surface space-y-5 shadow-card shadow-inset-glow hover:border-brass/40 transition-all duration-300">
                     {/* Roadmap Header & Metadata */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       <div>
@@ -225,22 +233,24 @@ export default function DashboardPage() {
                         </h3>
                       </div>
 
-                      {/* Controls */}
-                      <div className="flex items-center gap-2 self-start sm:self-auto">
+                      {/* Enrolment Actions */}
+                      <div className="flex items-center gap-2">
                         <Button
                           variant="ghost"
                           size="sm"
                           onClick={() => setEditingEnrolment(enrol)}
                           className="text-xs text-ink-muted hover:text-ink"
+                          title="Configure weekly hours pace"
                         >
-                          <Settings className="w-3.5 h-3.5 mr-1" />
-                          Set Pace
+                          <Settings className="w-3.5 h-3.5 mr-1 text-brass" />
+                          Adjust Pace
                         </Button>
                         <Button
                           variant="ghost"
                           size="sm"
                           onClick={() => setArchivingEnrolment(enrol)}
-                          className="text-xs text-ink-muted hover:text-red-600"
+                          className="text-xs text-ink-muted hover:text-danger"
+                          title="Archive enrollment"
                         >
                           <Archive className="w-3.5 h-3.5 mr-1" />
                           Archive
@@ -248,22 +258,20 @@ export default function DashboardPage() {
                       </div>
                     </div>
 
-                    {/* Progress Fraction Bar */}
-                    <div className="bg-surface-subtle p-4 rounded-xl border border-border">
-                      <ProgressFraction
-                        completedCoreCount={metrics.completedCoreCount}
-                        totalCoreCount={metrics.totalCoreCount}
-                        percentage={metrics.percentage}
-                        studiedCoreCount={metrics.studiedCoreCount}
-                        knownCoreCount={metrics.knownCoreCount}
-                        size="md"
-                      />
-                    </div>
+                    {/* Progress Bar & Denominator */}
+                    <ProgressFraction
+                      completedCoreCount={metrics.completedCoreCount}
+                      totalCoreCount={metrics.totalCoreCount}
+                      percentage={metrics.corePercentage}
+                      studiedCoreCount={metrics.studiedCoreCount}
+                      knownCoreCount={metrics.knownCoreCount}
+                      size="md"
+                    />
 
-                    {/* Deterministic Resume Action Banner */}
-                    <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-border/70">
+                    {/* Deterministic Next Step Banner */}
+                    <div className="pt-4 border-t border-border flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-surface-subtle/50 -mx-6 -mb-6 p-4 rounded-b-lg border-b border-border/70">
                       <div className="space-y-0.5">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-brand">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-brass">
                           {metrics.resumeReason || 'Deterministic Next Step'}
                         </span>
                         {resumeTopic ? (
@@ -274,7 +282,7 @@ export default function DashboardPage() {
                             </span>
                           </p>
                         ) : (
-                          <p className="text-sm font-semibold text-emerald-700">
+                          <p className="text-sm font-semibold text-success">
                             You have completed all core topics in this roadmap!
                           </p>
                         )}
@@ -283,7 +291,7 @@ export default function DashboardPage() {
                       {resumeTopic ? (
                         <Link to={`/roadmaps/${roadmap.slug}/topics/${resumeTopic.key}`}>
                           <Button size="md" className="w-full sm:w-auto font-semibold">
-                            <PlayCircle className="w-4 h-4 mr-2" />
+                            <PlayCircle className="w-4 h-4 mr-2 text-brass" />
                             Continue Learning
                           </Button>
                         </Link>
@@ -298,17 +306,17 @@ export default function DashboardPage() {
                   </Card>
                 );
               })}
-            </div>
+            </RevealGroup>
           </section>
 
           {/* Recently Studied Topics Ledger */}
           {recentlyTouched.length > 0 && (
-            <section className="space-y-3 pt-4">
+            <Reveal delay={200} className="space-y-3 pt-4">
               <h2 className="text-base font-bold text-ink flex items-center gap-2">
-                <Clock className="w-4 h-4 text-brand" />
+                <Clock className="w-4 h-4 text-brass" />
                 Recently Studied Topics
               </h2>
-              <div className="bg-surface rounded-xl border border-border divide-y divide-border/60 overflow-hidden">
+              <div className="bg-surface rounded-xl border border-border divide-y divide-border/60 overflow-hidden shadow-card shadow-inset-glow">
                 {recentlyTouched.map((item, idx) => (
                   <div
                     key={idx}
@@ -331,13 +339,13 @@ export default function DashboardPage() {
                     <Link to={`/roadmaps/${item.roadmapSlug}/topics/${item.key}`}>
                       <Button variant="ghost" size="sm" className="text-xs">
                         Open
-                        <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                        <ArrowRight className="w-3.5 h-3.5 ml-1 text-brass" />
                       </Button>
                     </Link>
                   </div>
                 ))}
               </div>
-            </section>
+            </Reveal>
           )}
         </div>
       )}

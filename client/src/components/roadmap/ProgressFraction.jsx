@@ -30,12 +30,12 @@ export default function ProgressFraction({
         aria-valuemin="0"
         aria-valuemax="100"
         aria-label={`Progress: ${percentage}% (${fractionText})`}
-        className={`w-full bg-surface-subtle border border-border rounded-full overflow-hidden ${
+        className={`w-full bg-surface-subtle border border-border rounded-full overflow-hidden shadow-inset-glow ${
           size === 'sm' ? 'h-1.5' : 'h-2.5'
         }`}
       >
         <div
-          className="h-full bg-brand transition-all duration-300 rounded-full"
+          className="h-full bg-gradient-to-r from-brand to-brass transition-all duration-500 ease-premium rounded-full"
           style={{ width: `${Math.min(100, Math.max(0, percentage))}%` }}
         />
       </div>

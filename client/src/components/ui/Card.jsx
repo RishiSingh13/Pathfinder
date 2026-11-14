@@ -9,8 +9,10 @@ export default function Card({
 }) {
   return (
     <div
-      className={`bg-surface rounded-lg border border-border transition-all duration-200 ${
-        hover ? 'hover:border-brand/40 hover:shadow-md' : 'shadow-sm'
+      className={`bg-surface rounded-lg border border-border shadow-card transition-all duration-300 ease-premium ${
+        hover
+          ? 'hover:border-brass/50 hover:shadow-lift hover:-translate-y-0.5'
+          : ''
       } ${className}`}
       onClick={onClick}
       {...props}

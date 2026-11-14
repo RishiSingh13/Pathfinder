@@ -6,6 +6,8 @@ import PageContainer from '../components/layout/PageContainer';
 import RoadmapCard from '../components/roadmap/RoadmapCard';
 import { RoadmapCardSkeleton } from '../components/ui/Skeleton';
 import Button from '../components/ui/Button';
+import Pop from '../components/motion/Pop';
+import { Reveal, RevealGroup } from '../components/motion/Reveal';
 
 export default function LandingPage() {
   const [featuredRoadmaps, setFeaturedRoadmaps] = useState([]);
@@ -29,69 +31,81 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div>
+    <div className="relative overflow-hidden">
+      {/* Decorative brass lines for subtle editorial structure */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-brass/30 to-transparent pointer-events-none" />
+
       {/* Hero Section */}
-      <section className="border-b border-border bg-gradient-to-b from-canvas to-surface py-16 sm:py-24">
-        <PageContainer className="text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-light text-brand text-xs font-semibold mb-6 border border-brand-border">
-            <ShieldCheck className="w-4 h-4" />
+      <section className="border-b border-border bg-gradient-to-b from-canvas via-surface to-canvas py-16 sm:py-24 relative">
+        <PageContainer className="text-center relative z-10">
+          <Pop delay={50} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-light text-brand text-xs font-semibold mb-6 border border-brand-border shadow-soft">
+            <ShieldCheck className="w-4 h-4 text-brass" />
             <span>Curated & Reviewed Curriculum</span>
-          </div>
+          </Pop>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-ink tracking-tight max-w-3xl mx-auto leading-tight">
-            Sequenced technical roadmaps for disciplined, self-directed learners.
-          </h1>
+          <Pop delay={120}>
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-ink tracking-tight max-w-3xl mx-auto leading-[1.15] font-serif sm:font-sans">
+              Sequenced technical roadmaps for disciplined, self-directed learners.
+            </h1>
+          </Pop>
 
-          <p className="mt-5 text-base sm:text-lg text-ink-muted max-w-2xl mx-auto leading-relaxed">
-            Stop drowning in generic AI summaries and fragmented tutorials. Follow structured, ordered modules with curator-vetted documentation, practice drills, and deterministic progress tracking.
-          </p>
+          <Pop delay={200}>
+            <p className="mt-5 text-base sm:text-lg text-ink-muted max-w-2xl mx-auto leading-relaxed">
+              Step away from generic AI noise and fragmented tutorials. Follow deliberate, ordered curricula with curator-vetted documentation, practice drills, and deterministic progress tracking.
+            </p>
+          </Pop>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link to="/catalogue">
+          <Pop delay={280} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link to="/catalogue" className="w-full sm:w-auto">
               <Button size="lg" className="w-full sm:w-auto">
                 Explore Published Roadmaps
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="w-4 h-4 ml-2 text-brass" />
               </Button>
             </Link>
-            <Link to="/register">
+            <Link to="/register" className="w-full sm:w-auto">
               <Button variant="secondary" size="lg" className="w-full sm:w-auto">
                 Create Free Account
               </Button>
             </Link>
-          </div>
+          </Pop>
 
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-xs text-ink-muted border-t border-border/60 pt-8 max-w-xl mx-auto">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-brand" />
-              Core-only progress denominator
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-brand" />
-              Deterministic next action
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-brand" />
-              Zero fake gamification streaks
-            </span>
-          </div>
+          <Pop delay={350}>
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-xs text-ink-subtle border-t border-border/70 pt-8 max-w-xl mx-auto">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-brass" />
+                Core-only progress denominator
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-brass" />
+                Deterministic next action
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-brass" />
+                Zero arbitrary streak gimmicks
+              </span>
+            </div>
+          </Pop>
         </PageContainer>
       </section>
 
       {/* Featured Roadmaps Section */}
       <section className="py-16">
         <PageContainer>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+          <Reveal delay={150} className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
             <div>
+              <div className="text-[11px] font-bold uppercase tracking-widest text-brass mb-1">
+                Editorial Selection
+              </div>
               <h2 className="text-2xl font-bold text-ink">Featured Roadmaps</h2>
               <p className="text-sm text-ink-muted mt-1">
-                Authoritative curricula maintained and reviewed by curators.
+                Authoritative curricula maintained and verified by field curators.
               </p>
             </div>
-            <Link to="/catalogue" className="text-sm font-semibold text-brand hover:underline flex items-center gap-1">
+            <Link to="/catalogue" className="text-sm font-semibold text-brand hover:text-brand-hover flex items-center gap-1 transition-colors">
               View all roadmaps
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-brass" />
             </Link>
-          </div>
+          </Reveal>
 
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -100,13 +114,15 @@ export default function LandingPage() {
               <RoadmapCardSkeleton />
             </div>
           ) : featuredRoadmaps.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <RevealGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {featuredRoadmaps.map((rm) => (
-                <RoadmapCard key={rm.id || rm.slug} roadmap={rm} />
+                <div key={rm.id || rm.slug} className="reveal-item">
+                  <RoadmapCard roadmap={rm} />
+                </div>
               ))}
-            </div>
+            </RevealGroup>
           ) : (
-            <div className="text-center py-12 bg-surface rounded-lg border border-border">
+            <div className="text-center py-12 bg-surface rounded-lg border border-border shadow-soft">
               <p className="text-sm text-ink-muted">No roadmaps currently published.</p>
             </div>
           )}
@@ -114,46 +130,74 @@ export default function LandingPage() {
       </section>
 
       {/* Product Pillars */}
-      <section className="py-16 bg-surface-subtle border-t border-border">
+      <section className="py-20 bg-surface-subtle/70 border-t border-border">
         <PageContainer>
-          <div className="text-center max-w-xl mx-auto mb-12">
-            <h2 className="text-2xl font-bold text-ink">Built on Sound Pedagogical Invariants</h2>
-            <p className="text-sm text-ink-muted mt-2">
-              Designed to help you master concepts without feeling overwhelmed or manipulated.
+          <Reveal delay={150} className="text-center max-w-xl mx-auto mb-14">
+            <div className="text-[11px] font-bold uppercase tracking-widest text-brass mb-1">
+              Pedagogical Standards
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-ink">Built on Sound Pedagogical Invariants</h2>
+            <p className="text-sm text-ink-muted mt-2 leading-relaxed">
+              Engineered to foster genuine conceptual mastery without friction or digital fatigue.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-surface p-6 rounded-lg border border-border space-y-3 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center border border-brand-border">
-                <Layers className="w-5 h-5" />
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="reveal-item bg-surface p-7 rounded-xl border border-border space-y-3.5 shadow-card shadow-inset-glow hover:border-brass/50 hover:shadow-lift transition-all duration-300">
+              <div className="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center border border-brand-border shadow-soft">
+                <Layers className="w-5 h-5 text-brass" />
               </div>
               <h3 className="text-base font-bold text-ink">Sequenced Curriculum</h3>
               <p className="text-xs text-ink-muted leading-relaxed">
-                Every topic explicitly details what prerequisite concepts it builds upon. You study in chronological pedagogical order rather than jumping randomly between unrated links.
+                Every topic explicitly details the foundational prerequisites it builds upon. You study in chronological sequence rather than hopping between disjointed tutorials.
               </p>
             </div>
 
-            <div className="bg-surface p-6 rounded-lg border border-border space-y-3 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-accent-light text-accent flex items-center justify-center border border-accent-border">
-                <Clock className="w-5 h-5" />
+            <div className="reveal-item bg-surface p-7 rounded-xl border border-border space-y-3.5 shadow-card shadow-inset-glow hover:border-brass/50 hover:shadow-lift transition-all duration-300">
+              <div className="w-10 h-10 rounded-lg bg-accent-light text-accent flex items-center justify-center border border-accent-border shadow-soft">
+                <Clock className="w-5 h-5 text-accent" />
               </div>
               <h3 className="text-base font-bold text-ink">Honest Pace & Progress</h3>
               <p className="text-xs text-ink-muted leading-relaxed">
-                Progress tracks active core topics strictly. Optional deep-dives and stretch challenges never dilute your completion fraction. Pick your weekly hours and learn at your own pace.
+                Progress tracks active core topics exclusively. Optional deep-dives and stretch challenges never skew your completion fraction. Select your weekly hours and build a sustainable habit.
               </p>
             </div>
 
-            <div className="bg-surface p-6 rounded-lg border border-border space-y-3 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-success-light text-success flex items-center justify-center border border-success-border">
-                <BookOpen className="w-5 h-5" />
+            <div className="reveal-item bg-surface p-7 rounded-xl border border-border space-y-3.5 shadow-card shadow-inset-glow hover:border-brass/50 hover:shadow-lift transition-all duration-300">
+              <div className="w-10 h-10 rounded-lg bg-success-light text-success flex items-center justify-center border border-success-border shadow-soft">
+                <BookOpen className="w-5 h-5 text-success" />
               </div>
               <h3 className="text-base font-bold text-ink">Human-Vetted Resources</h3>
               <p className="text-xs text-ink-muted leading-relaxed">
-                Curators review primary and alternate resources with explicit justifications and review dates. Report broken or outdated resources to our editorial queue anytime.
+                Experienced curators review primary and alternate resources with explicit justifications and review dates. Report broken or dated material to our editorial triage anytime.
               </p>
             </div>
-          </div>
+          </RevealGroup>
+        </PageContainer>
+      </section>
+
+      {/* Editorial Invitation Banner */}
+      <section className="bg-espresso text-surface py-16 border-t border-border-strong/40 relative">
+        <PageContainer className="text-center max-w-3xl">
+          <Reveal delay={150}>
+            <div className="w-10 h-10 rounded-xl bg-brand/40 text-brass border border-brass/30 flex items-center justify-center mx-auto mb-4">
+              <Compass className="w-6 h-6 text-brass" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-surface">
+              Begin your disciplined curriculum today.
+            </h2>
+            <p className="mt-3 text-sm text-surface-subtle/80 max-w-xl mx-auto leading-relaxed">
+              Join students and engineering professionals who prefer quiet depth and rigorous sequencing over endless feeds.
+            </p>
+            <div className="mt-8 flex justify-center gap-3">
+              <Link to="/register">
+                <Button size="lg" className="bg-gradient-to-b from-brass to-[#947444] border-brass/50 text-espresso font-semibold hover:brightness-110">
+                  Enroll in a Roadmap
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+            </div>
+          </Reveal>
         </PageContainer>
       </section>
     </div>
