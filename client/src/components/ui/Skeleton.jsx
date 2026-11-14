@@ -4,14 +4,14 @@ export function Skeleton({ className = '', rounded = 'rounded-md' }) {
   return (
     <div
       aria-hidden="true"
-      className={`animate-pulse bg-surface-subtle border border-border/50 ${rounded} ${className}`}
+      className={`animate-pulse bg-surface-subtle border border-border/60 ${rounded} ${className}`}
     />
   );
 }
 
 export function RoadmapCardSkeleton() {
   return (
-    <div className="bg-surface p-6 rounded-lg border border-border shadow-sm flex flex-col justify-between h-72">
+    <div className="bg-surface p-6 rounded-lg border border-border shadow-card flex flex-col justify-between h-72">
       <div className="space-y-3">
         <div className="flex justify-between items-center">
           <Skeleton className="h-5 w-24" />

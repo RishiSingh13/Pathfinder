@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Compass, ArrowRight, ShieldCheck, Lock, Mail, User } from 'lucide-react';
+import { Compass, ArrowRight, ShieldCheck } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import Input from '../components/ui/Input';
 import Button from '../components/ui/Button';
 import ErrorAlert from '../components/ui/ErrorAlert';
+import SpiralIntro from '../components/motion/SpiralIntro';
+import Pop from '../components/motion/Pop';
 
 export default function AuthPages({ initialMode = 'login' }) {
   const [mode, setMode] = useState(initialMode);
-  const { login, register, error, clearError } = useAuth();
+  const { login, register, clearError } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -66,26 +68,29 @@ export default function AuthPages({ initialMode = 'login' }) {
 
   return (
     <div className="min-h-[calc(100vh-16rem)] flex items-center justify-center py-12 px-4 sm:px-6">
-      <div className="w-full max-w-md space-y-6">
+      {/* First-login spiral intro */}
+      {mode === 'login' && <SpiralIntro variant="login" />}
+
+      <Pop className="w-full max-w-md space-y-6">
         {/* Brand Header */}
         <div className="text-center space-y-2">
-          <Link to="/" className="inline-flex items-center gap-2 text-brand">
-            <div className="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center shadow-sm">
-              <Compass className="w-5 h-5" />
+          <Link to="/" className="inline-flex items-center gap-2 group">
+            <div className="w-11 h-11 rounded-xl bg-brand text-canvas flex items-center justify-center shadow-card shadow-inset-glow group-hover:scale-105 transition-all">
+              <Compass className="w-6 h-6 text-brass" />
             </div>
           </Link>
-          <h1 className="text-2xl font-bold text-ink tracking-tight">
+          <h1 className="text-2xl font-bold text-ink tracking-tight font-serif sm:font-sans">
             {mode === 'login' ? 'Sign in to PathFinder' : 'Create your learner account'}
           </h1>
-          <p className="text-xs text-ink-muted">
+          <p className="text-xs text-ink-muted leading-relaxed max-w-sm mx-auto">
             {mode === 'login'
               ? 'Resume your curated roadmaps and track deterministic progress.'
-              : 'Join to enroll in published roadmaps and save your pace.'}
+              : 'Join to enroll in published roadmaps and save your study pace.'}
           </p>
         </div>
 
         {/* Form Container */}
-        <div className="bg-surface p-6 sm:p-8 rounded-2xl border border-border shadow-sm space-y-5">
+        <div className="bg-surface p-6 sm:p-8 rounded-2xl border border-border shadow-lift space-y-5 shadow-inset-glow">
           {formError && (
             <ErrorAlert
               title={mode === 'login' ? 'Sign In Failed' : 'Registration Failed'}
@@ -174,10 +179,10 @@ export default function AuthPages({ initialMode = 'login' }) {
 
         {/* Security Assurance */}
         <div className="text-center text-[11px] text-ink-faint flex items-center justify-center gap-1.5">
-          <ShieldCheck className="w-3.5 h-3.5 text-brand" />
+          <ShieldCheck className="w-3.5 h-3.5 text-brass" />
           <span>Sessions are secured with signed HTTP-only cookies and CSRF validation.</span>
         </div>
-      </div>
+      </Pop>
     </div>
   );
 }

@@ -73,8 +73,8 @@ export default function ReportIssueModal({
     >
       {submitted ? (
         <div className="text-center py-4 space-y-3">
-          <div className="w-12 h-12 mx-auto rounded-full bg-emerald-100 flex items-center justify-center">
-            <Flag className="w-6 h-6 text-emerald-600" />
+          <div className="w-12 h-12 mx-auto rounded-full bg-success-light border border-success-border flex items-center justify-center">
+            <Flag className="w-6 h-6 text-success" />
           </div>
           <p className="text-sm text-ink font-medium">Thank you for your report!</p>
           <p className="text-xs text-ink-muted leading-relaxed">
@@ -92,7 +92,7 @@ export default function ReportIssueModal({
           {/* Issue Type */}
           <div className="space-y-1.5">
             <label className="block text-xs font-semibold text-ink-muted uppercase tracking-wider">
-              Issue Type <span className="text-red-500">*</span>
+              Issue Type <span className="text-danger">*</span>
             </label>
             <div className="grid grid-cols-1 gap-1.5">
               {REPORT_TYPES.map((type) => (
@@ -165,8 +165,8 @@ export default function ReportIssueModal({
 
           {/* Error */}
           {error && (
-            <div className="flex items-start gap-2 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
-              <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+            <div className="flex items-start gap-2 p-3 rounded-lg bg-danger-light border border-danger-border text-danger text-sm">
+              <AlertCircle className="w-4 h-4 mt-0.5 shrink-0 text-danger" />
               <span>{error}</span>
             </div>
           )}

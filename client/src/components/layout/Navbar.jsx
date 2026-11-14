@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Compass, Menu, X, Shield, User, LogOut, ArrowRight } from 'lucide-react';
+import { Compass, Menu, X, Shield, LogOut, ArrowRight } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import Button from '../ui/Button';
 import Badge from '../ui/Badge';
@@ -8,7 +8,17 @@ import Badge from '../ui/Badge';
 export default function Navbar() {
   const { user, isAuthenticated, isAdmin, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 80);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const handleLogout = async () => {
     await logout();
@@ -17,24 +27,34 @@ export default function Navbar() {
   };
 
   const navLinkClasses = ({ isActive }) =>
-    `text-sm font-medium transition-colors px-3 py-1.5 rounded-md ${
+    `text-sm font-medium transition-all px-3 py-1.5 rounded-md hover:scale-[1.02] ${
       isActive
-        ? 'text-brand bg-brand-light font-semibold'
+        ? 'text-brand bg-brand-light font-semibold shadow-soft'
         : 'text-ink-muted hover:text-ink hover:bg-surface-subtle'
     }`;
 
   return (
-    <header className="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-border">
+    <header
+      className={`sticky top-0 z-40 transition-all duration-300 ease-premium ${
+        scrolled
+          ? 'bg-canvas/80 backdrop-blur-md shadow-soft border-b border-border delay-[250ms]'
+          : 'bg-surface/60 backdrop-blur-sm border-b border-border/70'
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-lg bg-brand text-white flex items-center justify-center shadow-sm group-hover:bg-brand-hover transition-colors">
-              <Compass className="w-5 h-5" />
+            <div className="w-9 h-9 rounded-lg bg-brand text-canvas flex items-center justify-center shadow-card shadow-inset-glow group-hover:bg-brand-hover transition-all duration-200 group-hover:scale-105">
+              <Compass className="w-5 h-5 text-brass" />
             </div>
             <div className="flex flex-col">
-              <span className="text-base font-bold text-ink tracking-tight">PathFinder</span>
-              <span className="text-[10px] text-ink-muted -mt-1 font-medium">Curated Roadmaps</span>
+              <span className="text-base font-bold text-ink tracking-tight font-sans">
+                PathFinder
+              </span>
+              <span className="text-[10px] text-ink-muted -mt-1 font-medium tracking-wide">
+                Curated Roadmaps
+              </span>
             </div>
           </Link>
 
@@ -51,7 +71,7 @@ export default function Navbar() {
             {isAdmin && (
               <NavLink to="/admin" className={navLinkClasses}>
                 <span className="inline-flex items-center gap-1">
-                  <Shield className="w-3.5 h-3.5 text-accent" />
+                  <Shield className="w-3.5 h-3.5 text-brass" />
                   Curator Studio
                 </span>
               </NavLink>
@@ -63,7 +83,7 @@ export default function Navbar() {
             {isAuthenticated ? (
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-2 pl-3 border-l border-border text-sm">
-                  <div className="w-7 h-7 rounded-full bg-brand-light text-brand flex items-center justify-center font-semibold text-xs border border-brand-border">
+                  <div className="w-7 h-7 rounded-full bg-brand-light text-brand flex items-center justify-center font-semibold text-xs border border-brand-border shadow-soft">
                     {user?.displayName ? user.displayName.charAt(0).toUpperCase() : 'U'}
                   </div>
                   <div className="flex flex-col">
@@ -75,7 +95,7 @@ export default function Navbar() {
                     )}
                   </div>
                 </div>
-                <Button variant="ghost" size="sm" onClick={handleLogout} className="text-ink-muted hover:text-red-600">
+                <Button variant="ghost" size="sm" onClick={handleLogout} className="text-ink-muted hover:text-danger">
                   <LogOut className="w-4 h-4 mr-1" />
                   Sign Out
                 </Button>
@@ -113,7 +133,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-border bg-surface px-4 pt-2 pb-6 space-y-3">
+        <div className="md:hidden border-b border-border bg-surface px-4 pt-2 pb-6 space-y-3 pop-in shadow-lift">
           <nav className="flex flex-col space-y-1">
             <NavLink
               to="/catalogue"
@@ -137,7 +157,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-md text-sm font-medium text-ink hover:bg-surface-subtle flex items-center gap-1.5"
               >
-                <Shield className="w-4 h-4 text-accent" />
+                <Shield className="w-4 h-4 text-brass" />
                 Curator Studio
               </NavLink>
             )}

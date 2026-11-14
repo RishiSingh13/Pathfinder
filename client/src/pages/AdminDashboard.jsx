@@ -180,8 +180,8 @@ export default function AdminDashboard() {
 
       {/* Global Alerts */}
       {actionSuccess && (
-        <div className="mb-6 p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+        <div className="mb-6 p-3.5 rounded-xl bg-success-light border border-success-border text-success text-sm flex items-center gap-2 shadow-soft">
+          <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
           <span>{actionSuccess}</span>
         </div>
       )}
@@ -197,9 +197,9 @@ export default function AdminDashboard() {
 
       {/* Top Stat Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-        <Card className="p-4 bg-surface">
+        <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
           <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
-            <BookOpen className="w-4 h-4 text-brand" />
+            <BookOpen className="w-4 h-4 text-brass" />
             <span>Total Roadmaps</span>
           </div>
           <div className="text-2xl font-extrabold text-ink tabular-nums">
@@ -207,9 +207,9 @@ export default function AdminDashboard() {
           </div>
         </Card>
 
-        <Card className="p-4 bg-surface">
+        <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
           <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+            <CheckCircle2 className="w-4 h-4 text-success" />
             <span>Published</span>
           </div>
           <div className="text-2xl font-extrabold text-ink tabular-nums">
@@ -217,9 +217,9 @@ export default function AdminDashboard() {
           </div>
         </Card>
 
-        <Card className="p-4 bg-surface">
+        <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
           <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
-            <Layers className="w-4 h-4 text-amber-600" />
+            <Layers className="w-4 h-4 text-accent" />
             <span>Drafts</span>
           </div>
           <div className="text-2xl font-extrabold text-ink tabular-nums">
@@ -553,7 +553,7 @@ export default function AdminDashboard() {
       >
         <form onSubmit={handleCreateRoadmap} className="space-y-4">
           {createError && (
-            <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2">
+            <div className="p-3 rounded-lg bg-danger-light border border-danger-border text-danger text-xs flex items-center gap-2">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{createError}</span>
             </div>
@@ -561,7 +561,7 @@ export default function AdminDashboard() {
 
           <div className="space-y-1">
             <label className="block text-xs font-semibold text-ink-muted uppercase tracking-wider">
-              Roadmap Title <span className="text-red-500">*</span>
+              Roadmap Title <span className="text-danger">*</span>
             </label>
             <Input
               value={newTitle}
@@ -573,7 +573,7 @@ export default function AdminDashboard() {
 
           <div className="space-y-1">
             <label className="block text-xs font-semibold text-ink-muted uppercase tracking-wider">
-              Unique URL Slug <span className="text-red-500">*</span>
+              Unique URL Slug <span className="text-danger">*</span>
             </label>
             <Input
               value={newSlug}
@@ -588,7 +588,7 @@ export default function AdminDashboard() {
 
           <div className="space-y-1">
             <label className="block text-xs font-semibold text-ink-muted uppercase tracking-wider">
-              Target Outcome <span className="text-red-500">*</span>
+              Target Outcome <span className="text-danger">*</span>
             </label>
             <textarea
               value={newOutcome}

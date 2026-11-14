@@ -38,23 +38,23 @@ export default function Modal({
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-ink/40 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-espresso/60 backdrop-blur-sm transition-opacity"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Modal Dialog Body */}
+      {/* Modal Dialog Body with pop entrance */}
       <div
         ref={modalRef}
-        className={`relative w-full ${maxWidth} bg-surface rounded-xl border border-border shadow-xl p-6 z-10 animate-in fade-in zoom-in-95 duration-150`}
+        className={`relative w-full ${maxWidth} bg-surface rounded-xl border border-border shadow-lift p-6 z-10 pop-in origin-center shadow-inset-glow`}
       >
-        <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="flex items-start justify-between gap-4 mb-4 pb-3 border-b border-border/70">
           <div>
             <h3 id="modal-title" className="text-lg font-semibold text-ink">
               {title}
             </h3>
             {description && (
-              <p className="text-sm text-ink-muted mt-1">{description}</p>
+              <p className="text-sm text-ink-muted mt-1 leading-relaxed">{description}</p>
             )}
           </div>
           <button
