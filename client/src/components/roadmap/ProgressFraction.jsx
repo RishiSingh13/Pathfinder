@@ -35,7 +35,11 @@ export default function ProgressFraction({
         }`}
       >
         <div
+<<<<<<< HEAD
           className="h-full bg-gradient-to-r from-brand to-brass transition-all duration-700 ease-smooth rounded-full progress-shimmer"
+=======
+          className="h-full bg-gradient-to-r from-brand to-brass transition-all duration-500 ease-premium rounded-full"
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
           style={{ width: `${Math.min(100, Math.max(0, percentage))}%` }}
         />
       </div>

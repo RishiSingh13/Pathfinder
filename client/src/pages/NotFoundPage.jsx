@@ -8,8 +8,13 @@ import Pop from '../components/motion/Pop';
 export default function NotFoundPage() {
   return (
     <PageContainer className="py-24 text-center">
+<<<<<<< HEAD
       <Pop delay={50} className="w-16 h-16 rounded-2xl bg-surface border border-brass/40 text-brass shadow-card flex items-center justify-center mx-auto mb-6 hover:rotate-12 hover:border-brass hover:shadow-glow-brass transition-all duration-300 group">
         <Compass className="w-8 h-8 text-brass group-hover:scale-110 transition-transform duration-300" />
+=======
+      <Pop delay={50} className="w-16 h-16 rounded-2xl bg-surface-subtle text-brass border border-border shadow-card shadow-inset-glow flex items-center justify-center mx-auto mb-6">
+        <Compass className="w-8 h-8 text-brass" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
       </Pop>
 
       <Pop delay={120}>

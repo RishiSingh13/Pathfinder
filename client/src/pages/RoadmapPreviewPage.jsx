@@ -313,7 +313,11 @@ export default function RoadmapPreviewPage() {
                         {coreCount} core topics
                       </span>
                       <div className="text-ink-muted">
+<<<<<<< HEAD
                         <ChevronDown className={`w-4 h-4 text-brass transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'}`} />
+=======
+                        {isExpanded ? <ChevronDown className="w-4 h-4 text-brass" /> : <ChevronRight className="w-4 h-4 text-brass" />}
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                       </div>
                     </div>
                   </button>
@@ -324,7 +328,11 @@ export default function RoadmapPreviewPage() {
                       {topicList.map((t, tIdx) => (
                         <div
                           key={t.id || t.key}
+<<<<<<< HEAD
                           className="px-5 py-3.5 flex items-center justify-between gap-3 hover:bg-surface-subtle transition-all duration-200 group hover:translate-x-1"
+=======
+                          className="px-5 py-3.5 flex items-center justify-between gap-3 hover:bg-surface-subtle transition-colors group"
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                         >
                           <div className="flex items-center gap-3">
                             <span className="text-xs font-mono text-ink-muted/70 w-5 text-right">
@@ -358,7 +366,11 @@ export default function RoadmapPreviewPage() {
                             </Badge>
                             <Link
                               to={`/roadmaps/${slug}/topics/${t.key}`}
+<<<<<<< HEAD
                               className="text-xs font-semibold text-brand hover:text-brand-hover p-1 rounded hover:bg-brand-light transition-all group-hover:translate-x-1"
+=======
+                              className="text-xs font-semibold text-brand hover:text-brand-hover p-1 rounded hover:bg-brand-light transition-colors"
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                               aria-label={`View topic: ${t.title}`}
                             >
                               <ArrowRight className="w-3.5 h-3.5 text-brass" />

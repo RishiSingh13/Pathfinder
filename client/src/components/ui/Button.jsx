@@ -13,6 +13,7 @@ export default function Button({
   ...props
 }) {
   const baseStyles =
+<<<<<<< HEAD
     'inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-canvas disabled:opacity-50 disabled:cursor-not-allowed select-none hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0 active:scale-[0.98]';
 
   const variants = {
@@ -28,6 +29,23 @@ export default function Button({
       'bg-danger text-[#141210] font-semibold hover:brightness-105 shadow-card',
     'danger-outline':
       'bg-transparent text-danger border border-danger/40 hover:bg-danger-light hover:border-danger',
+=======
+    'inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-canvas disabled:opacity-50 disabled:cursor-not-allowed select-none hover:scale-[1.02] hover:shadow-lift active:scale-[0.97]';
+
+  const variants = {
+    primary:
+      'bg-gradient-to-b from-[#7A5636] to-[#5C3F27] text-[#FBF8F3] border border-[#6B4A2F] shadow-card shadow-inset-glow hover:brightness-105 active:brightness-95',
+    secondary:
+      'bg-espresso text-canvas hover:bg-espresso/90 border border-espresso shadow-soft',
+    outline:
+      'bg-transparent text-brand border border-brand/40 hover:bg-brand-light hover:border-brand',
+    ghost:
+      'bg-transparent text-ink-muted hover:text-ink hover:bg-surface-subtle hover:scale-100',
+    danger:
+      'bg-danger text-white hover:bg-danger/90 shadow-card',
+    'danger-outline':
+      'bg-transparent text-danger border border-danger/30 hover:bg-danger-light hover:border-danger',
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
   };
 
   const sizes = {

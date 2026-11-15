@@ -79,20 +79,33 @@ export default function CataloguePage() {
         <div className="bg-surface p-4 sm:p-5 rounded-xl border border-border shadow-card shadow-inset-glow mb-8 space-y-4">
           <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
             {/* Search Box */}
+<<<<<<< HEAD
             <div className="relative flex-1 group">
               <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-brass pointer-events-none group-focus-within:scale-110 transition-transform duration-200" />
+=======
+            <div className="relative flex-1">
+              <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-brass pointer-events-none" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by roadmap title, topic, or expected outcome..."
+<<<<<<< HEAD
                 className="w-full pl-10 pr-9 py-2 text-sm bg-surface-subtle text-ink placeholder:text-ink-faint rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand focus:bg-surface focus:shadow-glow-brand transition-all shadow-soft"
+=======
+                className="w-full pl-10 pr-9 py-2 text-sm bg-surface-subtle text-ink placeholder:text-ink-faint rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand focus:bg-surface transition-all shadow-soft"
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               />
               {search && (
                 <button
                   type="button"
                   onClick={() => setSearch('')}
+<<<<<<< HEAD
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-muted hover:text-ink p-0.5 rounded transition-transform hover:scale-110"
+=======
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-muted hover:text-ink p-0.5 rounded"
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                   aria-label="Clear search input"
                 >
                   <X className="w-3.5 h-3.5" />
@@ -102,8 +115,13 @@ export default function CataloguePage() {
 
             {/* Clear Filters Button */}
             {hasActiveFilters && (
+<<<<<<< HEAD
               <Button variant="ghost" size="sm" onClick={handleClearFilters} className="text-xs shrink-0 group">
                 <RefreshCw className="w-3.5 h-3.5 mr-1.5 group-hover:rotate-180 transition-transform duration-500" />
+=======
+              <Button variant="ghost" size="sm" onClick={handleClearFilters} className="text-xs shrink-0">
+                <RefreshCw className="w-3.5 h-3.5 mr-1.5" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                 Reset Filters
               </Button>
             )}
@@ -120,10 +138,17 @@ export default function CataloguePage() {
                 key={lvl}
                 type="button"
                 onClick={() => setLevel(lvl)}
+<<<<<<< HEAD
                 className={`text-xs px-3.5 py-1.5 rounded-full font-medium transition-all duration-200 shadow-soft active:scale-95 ${
                   level === lvl
                     ? 'bg-brand text-[#141210] font-bold shadow-card scale-105 shadow-glow-brass'
                     : 'bg-surface-subtle text-ink-muted hover:text-ink hover:bg-border/60 hover:-translate-y-0.5'
+=======
+                className={`text-xs px-3 py-1 rounded-full font-medium transition-all shadow-soft ${
+                  level === lvl
+                    ? 'bg-brand text-[#FBF8F3] shadow-card scale-105'
+                    : 'bg-surface-subtle text-ink-muted hover:text-ink hover:bg-border/60'
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                 }`}
               >
                 {lvl}

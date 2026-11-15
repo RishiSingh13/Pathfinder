@@ -27,26 +27,44 @@ export default function Navbar() {
   };
 
   const navLinkClasses = ({ isActive }) =>
+<<<<<<< HEAD
     `text-sm font-medium transition-all duration-200 px-3 py-1.5 rounded-md hover:-translate-y-0.5 ${
       isActive
         ? 'text-brand bg-brand-light font-semibold shadow-soft border border-brand-border/60'
+=======
+    `text-sm font-medium transition-all px-3 py-1.5 rounded-md hover:scale-[1.02] ${
+      isActive
+        ? 'text-brand bg-brand-light font-semibold shadow-soft'
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
         : 'text-ink-muted hover:text-ink hover:bg-surface-subtle'
     }`;
 
   return (
     <header
+<<<<<<< HEAD
       className={`sticky top-0 z-40 transition-all duration-300 ease-smooth ${
         scrolled
           ? 'bg-canvas/85 backdrop-blur-md shadow-card border-b border-border'
           : 'bg-canvas/60 backdrop-blur-sm border-b border-border/70'
+=======
+      className={`sticky top-0 z-40 transition-all duration-300 ease-premium ${
+        scrolled
+          ? 'bg-canvas/80 backdrop-blur-md shadow-soft border-b border-border delay-[250ms]'
+          : 'bg-surface/60 backdrop-blur-sm border-b border-border/70'
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
+<<<<<<< HEAD
             <div className="w-9 h-9 rounded-lg bg-surface border border-brass/40 text-brass flex items-center justify-center shadow-card group-hover:border-brass group-hover:scale-105 group-hover:shadow-glow-brass transition-all duration-300">
               <Compass className="w-5 h-5 text-brass group-hover:rotate-12 transition-transform duration-300" />
+=======
+            <div className="w-9 h-9 rounded-lg bg-brand text-canvas flex items-center justify-center shadow-card shadow-inset-glow group-hover:bg-brand-hover transition-all duration-200 group-hover:scale-105">
+              <Compass className="w-5 h-5 text-brass" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             </div>
             <div className="flex flex-col">
               <span className="text-base font-bold text-ink tracking-tight font-sans">

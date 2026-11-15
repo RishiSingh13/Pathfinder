@@ -131,10 +131,17 @@ export default function SpiralIntro({ variant = 'site', onDone }) {
           {/* Secondary counter-rotating faint spiral */}
           <path
             d={spiralPath}
+<<<<<<< HEAD
             stroke="#504437"
             strokeWidth="1.2"
             strokeLinecap="round"
             opacity="0.4"
+=======
+            stroke="#F3EDE4"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            opacity="0.3"
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             style={{
               transformOrigin: '200px 200px',
               animation: isSite
@@ -143,10 +150,17 @@ export default function SpiralIntro({ variant = 'site', onDone }) {
             }}
           />
 
+<<<<<<< HEAD
           {/* Primary Golden Spiral in Brass #E0B873 */}
           <path
             d={spiralPath}
             stroke="#E0B873"
+=======
+          {/* Primary Golden Spiral in Brass #B08D57 */}
+          <path
+            d={spiralPath}
+            stroke="#B08D57"
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             strokeWidth="1.5"
             strokeLinecap="round"
             pathLength="1000"
@@ -168,7 +182,11 @@ export default function SpiralIntro({ variant = 'site', onDone }) {
             }`}
           >
             <Compass className="w-8 h-8 text-brass mb-2" strokeWidth={1.5} />
+<<<<<<< HEAD
             <h1 className="text-xl sm:text-2xl font-semibold tracking-widest text-ink uppercase">
+=======
+            <h1 className="text-xl sm:text-2xl font-semibold tracking-widest text-canvas uppercase">
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               PathFinder
             </h1>
             <p className="text-[11px] tracking-widest uppercase text-brass/80 mt-1 font-medium">
@@ -183,7 +201,11 @@ export default function SpiralIntro({ variant = 'site', onDone }) {
         <button
           type="button"
           onClick={finish}
+<<<<<<< HEAD
           className="absolute bottom-6 right-8 text-xs text-ink-muted hover:text-brass transition-colors tracking-wider uppercase font-medium focus:outline-none focus:ring-1 focus:ring-brass rounded px-2 py-1"
+=======
+          className="absolute bottom-6 right-8 text-xs text-canvas/60 hover:text-brass transition-colors tracking-wider uppercase font-medium focus:outline-none focus:ring-1 focus:ring-brass rounded px-2 py-1"
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
         >
           Skip
         </button>

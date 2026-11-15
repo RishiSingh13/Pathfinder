@@ -38,7 +38,11 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="border-b border-border bg-gradient-to-b from-canvas via-surface to-canvas py-16 sm:py-24 relative">
         <PageContainer className="text-center relative z-10">
+<<<<<<< HEAD
           <Pop delay={50} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-light text-brand text-xs font-semibold mb-6 border border-brand-border shadow-soft badge-pulse">
+=======
+          <Pop delay={50} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-light text-brand text-xs font-semibold mb-6 border border-brand-border shadow-soft">
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             <ShieldCheck className="w-4 h-4 text-brass" />
             <span>Curated & Reviewed Curriculum</span>
           </Pop>
@@ -101,9 +105,15 @@ export default function LandingPage() {
                 Authoritative curricula maintained and verified by field curators.
               </p>
             </div>
+<<<<<<< HEAD
             <Link to="/catalogue" className="text-sm font-semibold text-brand hover:text-brand-hover flex items-center gap-1 transition-colors group">
               View all roadmaps
               <ArrowRight className="w-4 h-4 text-brass transition-transform duration-200 group-hover:translate-x-1" />
+=======
+            <Link to="/catalogue" className="text-sm font-semibold text-brand hover:text-brand-hover flex items-center gap-1 transition-colors">
+              View all roadmaps
+              <ArrowRight className="w-4 h-4 text-brass" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             </Link>
           </Reveal>
 
@@ -143,31 +153,55 @@ export default function LandingPage() {
           </Reveal>
 
           <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-8">
+<<<<<<< HEAD
             <div className="reveal-item bg-surface p-7 rounded-xl border border-border space-y-3.5 shadow-card shadow-inset-glow hover:border-brass/50 hover:shadow-lift hover:-translate-y-1.5 transition-all duration-300 group">
               <div className="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center border border-brand-border shadow-soft group-hover:scale-110 group-hover:border-brass transition-all duration-300">
                 <Layers className="w-5 h-5 text-brass" />
               </div>
               <h3 className="text-base font-bold text-ink group-hover:text-brand transition-colors">Sequenced Curriculum</h3>
+=======
+            <div className="reveal-item bg-surface p-7 rounded-xl border border-border space-y-3.5 shadow-card shadow-inset-glow hover:border-brass/50 hover:shadow-lift transition-all duration-300">
+              <div className="w-10 h-10 rounded-lg bg-brand-light text-brand flex items-center justify-center border border-brand-border shadow-soft">
+                <Layers className="w-5 h-5 text-brass" />
+              </div>
+              <h3 className="text-base font-bold text-ink">Sequenced Curriculum</h3>
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               <p className="text-xs text-ink-muted leading-relaxed">
                 Every topic explicitly details the foundational prerequisites it builds upon. You study in chronological sequence rather than hopping between disjointed tutorials.
               </p>
             </div>
 
+<<<<<<< HEAD
             <div className="reveal-item bg-surface p-7 rounded-xl border border-border space-y-3.5 shadow-card shadow-inset-glow hover:border-brass/50 hover:shadow-lift hover:-translate-y-1.5 transition-all duration-300 group">
               <div className="w-10 h-10 rounded-lg bg-accent-light text-accent flex items-center justify-center border border-accent-border shadow-soft group-hover:scale-110 group-hover:border-accent transition-all duration-300">
                 <Clock className="w-5 h-5 text-accent" />
               </div>
               <h3 className="text-base font-bold text-ink group-hover:text-accent transition-colors">Honest Pace & Progress</h3>
+=======
+            <div className="reveal-item bg-surface p-7 rounded-xl border border-border space-y-3.5 shadow-card shadow-inset-glow hover:border-brass/50 hover:shadow-lift transition-all duration-300">
+              <div className="w-10 h-10 rounded-lg bg-accent-light text-accent flex items-center justify-center border border-accent-border shadow-soft">
+                <Clock className="w-5 h-5 text-accent" />
+              </div>
+              <h3 className="text-base font-bold text-ink">Honest Pace & Progress</h3>
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               <p className="text-xs text-ink-muted leading-relaxed">
                 Progress tracks active core topics exclusively. Optional deep-dives and stretch challenges never skew your completion fraction. Select your weekly hours and build a sustainable habit.
               </p>
             </div>
 
+<<<<<<< HEAD
             <div className="reveal-item bg-surface p-7 rounded-xl border border-border space-y-3.5 shadow-card shadow-inset-glow hover:border-brass/50 hover:shadow-lift hover:-translate-y-1.5 transition-all duration-300 group">
               <div className="w-10 h-10 rounded-lg bg-success-light text-success flex items-center justify-center border border-success-border shadow-soft group-hover:scale-110 group-hover:border-success transition-all duration-300">
                 <BookOpen className="w-5 h-5 text-success" />
               </div>
               <h3 className="text-base font-bold text-ink group-hover:text-success transition-colors">Human-Vetted Resources</h3>
+=======
+            <div className="reveal-item bg-surface p-7 rounded-xl border border-border space-y-3.5 shadow-card shadow-inset-glow hover:border-brass/50 hover:shadow-lift transition-all duration-300">
+              <div className="w-10 h-10 rounded-lg bg-success-light text-success flex items-center justify-center border border-success-border shadow-soft">
+                <BookOpen className="w-5 h-5 text-success" />
+              </div>
+              <h3 className="text-base font-bold text-ink">Human-Vetted Resources</h3>
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               <p className="text-xs text-ink-muted leading-relaxed">
                 Experienced curators review primary and alternate resources with explicit justifications and review dates. Report broken or dated material to our editorial triage anytime.
               </p>
@@ -177,6 +211,7 @@ export default function LandingPage() {
       </section>
 
       {/* Editorial Invitation Banner */}
+<<<<<<< HEAD
       <section className="bg-espresso text-ink py-16 border-t border-border relative">
         <PageContainer className="text-center max-w-3xl">
           <Reveal delay={150}>
@@ -187,11 +222,27 @@ export default function LandingPage() {
               Begin your disciplined curriculum today.
             </h2>
             <p className="mt-3 text-sm text-ink-muted max-w-xl mx-auto leading-relaxed">
+=======
+      <section className="bg-espresso text-surface py-16 border-t border-border-strong/40 relative">
+        <PageContainer className="text-center max-w-3xl">
+          <Reveal delay={150}>
+            <div className="w-10 h-10 rounded-xl bg-brand/40 text-brass border border-brass/30 flex items-center justify-center mx-auto mb-4">
+              <Compass className="w-6 h-6 text-brass" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-surface">
+              Begin your disciplined curriculum today.
+            </h2>
+            <p className="mt-3 text-sm text-surface-subtle/80 max-w-xl mx-auto leading-relaxed">
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               Join students and engineering professionals who prefer quiet depth and rigorous sequencing over endless feeds.
             </p>
             <div className="mt-8 flex justify-center gap-3">
               <Link to="/register">
+<<<<<<< HEAD
                 <Button size="lg" className="bg-gradient-to-b from-brass to-[#A67538] border-brass/50 text-[#141210] font-bold hover:brightness-110 shadow-glow-brass">
+=======
+                <Button size="lg" className="bg-gradient-to-b from-brass to-[#947444] border-brass/50 text-espresso font-semibold hover:brightness-110">
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                   Enroll in a Roadmap
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>

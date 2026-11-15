@@ -77,7 +77,11 @@ function AppShell() {
   const isLoginPage = location.pathname === '/login';
 
   return (
+<<<<<<< HEAD
     <div className="flex flex-col min-h-screen bg-canvas text-ink">
+=======
+    <div className="flex flex-col min-h-screen bg-canvas text-ink selection:bg-brand selection:text-surface">
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
       {/* Full-screen Golden Spiral Intro on first site load (skip on /login to prevent dual overlay collision) */}
       {!isLoginPage && <SpiralIntro variant="site" />}
 
@@ -92,12 +96,21 @@ function AppShell() {
         <button
           type="button"
           onClick={() => setAiOpen(true)}
+<<<<<<< HEAD
           className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-surface text-ink border border-brass/40 hover:border-brass shadow-lift hover:shadow-glow-brass hover:-translate-y-1 active:translate-y-0 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-canvas group"
           title="Ask PathFinder AI"
           aria-label="Open PathFinder AI Assistant"
         >
           <Sparkles className="w-5 h-5 text-brass group-hover:rotate-12 transition-transform duration-300" />
           <span className="text-sm font-semibold hidden sm:inline group-hover:text-brass transition-colors">Ask AI</span>
+=======
+          className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-espresso text-surface border border-brass/40 hover:bg-espresso/90 shadow-card hover:shadow-lift hover:scale-105 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-canvas"
+          title="Ask PathFinder AI"
+          aria-label="Open PathFinder AI Assistant"
+        >
+          <Sparkles className="w-5 h-5 text-brass" />
+          <span className="text-sm font-semibold hidden sm:inline">Ask AI</span>
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
         </button>
       )}
 

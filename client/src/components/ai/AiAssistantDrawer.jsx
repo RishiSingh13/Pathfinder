@@ -33,12 +33,21 @@ export default function AiAssistantDrawer({ isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end" role="dialog" aria-modal="true" aria-label="PathFinder AI">
+<<<<<<< HEAD
       <div className="fixed inset-0 bg-espresso/75 backdrop-blur-md transition-opacity" onClick={onClose} aria-hidden="true" />
 
       <aside className="relative z-10 w-full max-w-md bg-surface border-l border-border shadow-lift flex flex-col h-full animate-in slide-in-from-right duration-300 ease-smooth">
         <div className="px-5 py-4 border-b border-border flex items-center justify-between bg-canvas">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-surface border border-brass/40 text-brass shadow-card flex items-center justify-center">
+=======
+      <div className="fixed inset-0 bg-espresso/60 backdrop-blur-sm transition-opacity" onClick={onClose} aria-hidden="true" />
+
+      <aside className="relative z-10 w-full max-w-md bg-surface border-l border-border shadow-lift flex flex-col h-full animate-in slide-in-from-right duration-300 ease-premium">
+        <div className="px-5 py-4 border-b border-border flex items-center justify-between bg-canvas">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-brand text-brass shadow-card flex items-center justify-center">
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               <Sparkles className="w-4 h-4 text-brass" />
             </div>
             <h2 className="text-base font-bold text-ink tracking-tight font-serif sm:font-sans">PathFinder AI</h2>
@@ -67,11 +76,19 @@ export default function AiAssistantDrawer({ isOpen, onClose }) {
           )}
 
           {messages.map((msg, idx) => (
+<<<<<<< HEAD
             <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} pop-in`}>
               <div
                 className={`max-w-[88%] rounded-xl px-4 py-2.5 text-sm whitespace-pre-wrap leading-relaxed ${
                   msg.role === 'user'
                     ? 'bg-gradient-to-b from-[#A66F3E] to-[#7D4E24] text-[#FFF9F3] border border-[#BD824D]/60 shadow-card'
+=======
+            <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+              <div
+                className={`max-w-[88%] rounded-xl px-4 py-2.5 text-sm whitespace-pre-wrap leading-relaxed ${
+                  msg.role === 'user'
+                    ? 'bg-gradient-to-b from-[#7A5636] to-[#5C3F27] text-[#FBF8F3] border border-[#6B4A2F] shadow-card'
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                     : 'bg-surface border border-border text-ink shadow-soft'
                 }`}
               >

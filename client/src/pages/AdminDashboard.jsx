@@ -197,9 +197,15 @@ export default function AdminDashboard() {
 
       {/* Top Stat Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+<<<<<<< HEAD
         <Card className="p-4 bg-surface shadow-card shadow-inset-glow hover:-translate-y-1 hover:border-brass/40 hover:shadow-lift transition-all duration-300 group">
           <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
             <BookOpen className="w-4 h-4 text-brass group-hover:scale-110 transition-transform duration-200" />
+=======
+        <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
+          <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
+            <BookOpen className="w-4 h-4 text-brass" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             <span>Total Roadmaps</span>
           </div>
           <div className="text-2xl font-extrabold text-ink tabular-nums">
@@ -207,9 +213,15 @@ export default function AdminDashboard() {
           </div>
         </Card>
 
+<<<<<<< HEAD
         <Card className="p-4 bg-surface shadow-card shadow-inset-glow hover:-translate-y-1 hover:border-brass/40 hover:shadow-lift transition-all duration-300 group">
           <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
             <CheckCircle2 className="w-4 h-4 text-success group-hover:scale-110 transition-transform duration-200" />
+=======
+        <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
+          <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
+            <CheckCircle2 className="w-4 h-4 text-success" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             <span>Published</span>
           </div>
           <div className="text-2xl font-extrabold text-ink tabular-nums">
@@ -217,9 +229,15 @@ export default function AdminDashboard() {
           </div>
         </Card>
 
+<<<<<<< HEAD
         <Card className="p-4 bg-surface shadow-card shadow-inset-glow hover:-translate-y-1 hover:border-brass/40 hover:shadow-lift transition-all duration-300 group">
           <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
             <Layers className="w-4 h-4 text-accent group-hover:scale-110 transition-transform duration-200" />
+=======
+        <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
+          <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
+            <Layers className="w-4 h-4 text-accent" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             <span>Drafts</span>
           </div>
           <div className="text-2xl font-extrabold text-ink tabular-nums">
@@ -227,9 +245,15 @@ export default function AdminDashboard() {
           </div>
         </Card>
 
+<<<<<<< HEAD
         <Card className="p-4 bg-surface shadow-card shadow-inset-glow hover:-translate-y-1 hover:border-brass/40 hover:shadow-lift transition-all duration-300 group">
           <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
             <Flag className="w-4 h-4 text-danger group-hover:scale-110 transition-transform duration-200" />
+=======
+        <Card className="p-4 bg-surface">
+          <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
+            <Flag className="w-4 h-4 text-rose-600" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             <span>Open Reports</span>
           </div>
           <div className="text-2xl font-extrabold text-ink tabular-nums">
@@ -242,7 +266,11 @@ export default function AdminDashboard() {
       <div className="flex border-b border-border mb-6">
         <button
           onClick={() => setActiveTab('roadmaps')}
+<<<<<<< HEAD
           className={`pb-3 px-4 text-sm font-semibold border-b-2 transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-2 ${
+=======
+          className={`pb-3 px-4 text-sm font-semibold border-b-2 transition-colors flex items-center gap-2 ${
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             activeTab === 'roadmaps'
               ? 'border-brand text-brand'
               : 'border-transparent text-ink-muted hover:text-ink'
@@ -253,7 +281,11 @@ export default function AdminDashboard() {
         </button>
         <button
           onClick={() => setActiveTab('reports')}
+<<<<<<< HEAD
           className={`pb-3 px-4 text-sm font-semibold border-b-2 transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-2 ${
+=======
+          className={`pb-3 px-4 text-sm font-semibold border-b-2 transition-colors flex items-center gap-2 ${
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             activeTab === 'reports'
               ? 'border-brand text-brand'
               : 'border-transparent text-ink-muted hover:text-ink'
@@ -262,7 +294,11 @@ export default function AdminDashboard() {
           <Flag className="w-4 h-4" />
           Content Issues
           {openReportsCount > 0 && (
+<<<<<<< HEAD
             <span className="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-danger-light text-danger border border-danger-border">
+=======
+            <span className="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-rose-100 text-rose-700">
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               {openReportsCount}
             </span>
           )}

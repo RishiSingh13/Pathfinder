@@ -264,8 +264,13 @@ export default function TopicPage() {
                     key={action.status}
                     onClick={() => !updatingStatus && handleStatusUpdate(action.status)}
                     disabled={updatingStatus || isActive}
+<<<<<<< HEAD
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-sm font-medium transition-all duration-200 active:scale-95 hover:-translate-y-0.5 shadow-soft ${
                       isActive ? `${action.activeClassName} shadow-card scale-[1.02]` : action.className
+=======
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-sm font-medium transition-all ${
+                      isActive ? action.activeClassName : action.className
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                     } disabled:opacity-60 disabled:cursor-default`}
                   >
                     <ActionIcon className="w-4 h-4" />
@@ -399,9 +404,15 @@ export default function TopicPage() {
         <div>
           {navigation.prev ? (
             <Link to={`/roadmaps/${roadmap.slug}/topics/${navigation.prev.key}`}>
+<<<<<<< HEAD
               <div className="group p-3 rounded-xl border border-border hover:border-brand/40 hover:bg-surface-subtle hover:-translate-y-0.5 hover:shadow-card transition-all duration-200">
                 <div className="flex items-center gap-1 text-xs text-ink-muted mb-1">
                   <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform duration-200" />
+=======
+              <div className="group p-3 rounded-xl border border-border hover:border-brand/40 hover:bg-surface-subtle transition-all">
+                <div className="flex items-center gap-1 text-xs text-ink-muted mb-1">
+                  <ArrowLeft className="w-3.5 h-3.5" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                   <span>Previous</span>
                 </div>
                 <p className="text-sm font-semibold text-ink group-hover:text-brand transition-colors line-clamp-2">
@@ -414,9 +425,15 @@ export default function TopicPage() {
             </Link>
           ) : (
             <Link to={`/roadmaps/${roadmap.slug}`}>
+<<<<<<< HEAD
               <div className="group p-3 rounded-xl border border-border hover:border-brand/40 hover:bg-surface-subtle hover:-translate-y-0.5 hover:shadow-card transition-all duration-200">
                 <div className="flex items-center gap-1 text-xs text-ink-muted mb-1">
                   <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform duration-200" />
+=======
+              <div className="group p-3 rounded-xl border border-border hover:border-brand/40 hover:bg-surface-subtle transition-all">
+                <div className="flex items-center gap-1 text-xs text-ink-muted mb-1">
+                  <ArrowLeft className="w-3.5 h-3.5" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                   <span>Back to Roadmap</span>
                 </div>
                 <p className="text-sm font-semibold text-ink group-hover:text-brand transition-colors">
@@ -430,10 +447,17 @@ export default function TopicPage() {
         <div className="text-right">
           {navigation.next && (
             <Link to={`/roadmaps/${roadmap.slug}/topics/${navigation.next.key}`}>
+<<<<<<< HEAD
               <div className="group p-3 rounded-xl border border-border hover:border-brand/40 hover:bg-surface-subtle hover:-translate-y-0.5 hover:shadow-card transition-all duration-200">
                 <div className="flex items-center justify-end gap-1 text-xs text-ink-muted mb-1">
                   <span>Next</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
+=======
+              <div className="group p-3 rounded-xl border border-border hover:border-brand/40 hover:bg-surface-subtle transition-all">
+                <div className="flex items-center justify-end gap-1 text-xs text-ink-muted mb-1">
+                  <span>Next</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                 </div>
                 <p className="text-sm font-semibold text-ink group-hover:text-brand transition-colors line-clamp-2">
                   {navigation.next.title}
@@ -469,7 +493,11 @@ function ResourceCard({ resource, onReport }) {
   const roleConfig = resourceRoleConfig[resource.role] || resourceRoleConfig.primary;
 
   return (
+<<<<<<< HEAD
     <div className="p-4 rounded-xl border border-border bg-surface hover:border-brass/40 hover:-translate-y-0.5 hover:shadow-card transition-all duration-200 group">
+=======
+    <div className="p-4 rounded-xl border border-border bg-surface hover:border-brand/30 transition-colors group">
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
           {/* Title and external link */}
@@ -481,7 +509,11 @@ function ResourceCard({ resource, onReport }) {
               className="text-sm font-semibold text-ink hover:text-brand transition-colors flex items-center gap-1.5 group-hover:text-brand"
             >
               {resource.title}
+<<<<<<< HEAD
               <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+=======
+              <ExternalLink className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 shrink-0" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             </a>
           </div>
 
@@ -531,7 +563,11 @@ function PracticeCard({ item }) {
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
+<<<<<<< HEAD
       className="flex items-center justify-between p-3.5 rounded-xl border border-border bg-surface hover:border-brass/40 hover:bg-surface-subtle hover:-translate-y-0.5 hover:shadow-card transition-all duration-200 group"
+=======
+      className="flex items-center justify-between p-3.5 rounded-xl border border-border bg-surface hover:border-brand/30 hover:bg-surface-subtle transition-all group"
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
     >
       <div className="flex-1 min-w-0">
         <p className="text-sm font-semibold text-ink group-hover:text-brand transition-colors">

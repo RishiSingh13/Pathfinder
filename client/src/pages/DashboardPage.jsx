@@ -144,9 +144,15 @@ export default function DashboardPage() {
       {/* Summary KPI Strip */}
       <Pop delay={120}>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+<<<<<<< HEAD
           <Card className="p-4 bg-surface shadow-card shadow-inset-glow hover:-translate-y-1 hover:border-brass/40 hover:shadow-lift transition-all duration-300 group">
             <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
               <Layers className="w-4 h-4 text-brass group-hover:scale-110 transition-transform duration-200" />
+=======
+          <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
+            <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
+              <Layers className="w-4 h-4 text-brass" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               <span>Active Roadmaps</span>
             </div>
             <div className="text-2xl font-extrabold text-ink tabular-nums">
@@ -154,9 +160,15 @@ export default function DashboardPage() {
             </div>
           </Card>
 
+<<<<<<< HEAD
           <Card className="p-4 bg-surface shadow-card shadow-inset-glow hover:-translate-y-1 hover:border-brass/40 hover:shadow-lift transition-all duration-300 group">
             <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
               <CheckCircle2 className="w-4 h-4 text-brass group-hover:scale-110 transition-transform duration-200" />
+=======
+          <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
+            <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
+              <CheckCircle2 className="w-4 h-4 text-brass" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               <span>Core Completed</span>
             </div>
             <div className="text-2xl font-extrabold text-ink tabular-nums">
@@ -164,9 +176,15 @@ export default function DashboardPage() {
             </div>
           </Card>
 
+<<<<<<< HEAD
           <Card className="p-4 bg-surface shadow-card shadow-inset-glow hover:-translate-y-1 hover:border-brass/40 hover:shadow-lift transition-all duration-300 group">
             <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
               <Clock className="w-4 h-4 text-accent group-hover:scale-110 transition-transform duration-200" />
+=======
+          <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
+            <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
+              <Clock className="w-4 h-4 text-accent" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               <span>Est. Remaining</span>
             </div>
             <div className="text-2xl font-extrabold text-ink tabular-nums">
@@ -174,9 +192,15 @@ export default function DashboardPage() {
             </div>
           </Card>
 
+<<<<<<< HEAD
           <Card className="p-4 bg-surface shadow-card shadow-inset-glow hover:-translate-y-1 hover:border-brass/40 hover:shadow-lift transition-all duration-300 group">
             <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
               <Award className="w-4 h-4 text-success group-hover:scale-110 transition-transform duration-200" />
+=======
+          <Card className="p-4 bg-surface shadow-card shadow-inset-glow">
+            <div className="flex items-center gap-2 text-ink-muted text-xs font-medium mb-1">
+              <Award className="w-4 h-4 text-success" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
               <span>Pathways Mastered</span>
             </div>
             <div className="text-2xl font-extrabold text-ink tabular-nums">
