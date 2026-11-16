@@ -75,8 +75,13 @@ export default function AuthPages({ initialMode = 'login' }) {
         {/* Brand Header */}
         <div className="text-center space-y-2">
           <Link to="/" className="inline-flex items-center gap-2 group">
+<<<<<<< HEAD
+            <div className="w-11 h-11 rounded-xl bg-surface border border-brass/40 text-brass flex items-center justify-center shadow-card group-hover:scale-105 group-hover:border-brass group-hover:shadow-glow-brass transition-all duration-300">
+              <Compass className="w-6 h-6 text-brass group-hover:rotate-12 transition-transform duration-300" />
+=======
             <div className="w-11 h-11 rounded-xl bg-brand text-canvas flex items-center justify-center shadow-card shadow-inset-glow group-hover:scale-105 transition-all">
               <Compass className="w-6 h-6 text-brass" />
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
             </div>
           </Link>
           <h1 className="text-2xl font-bold text-ink tracking-tight font-serif sm:font-sans">

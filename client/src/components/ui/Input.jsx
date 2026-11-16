@@ -26,7 +26,11 @@ export default function Input({
         required={required}
         aria-invalid={!!error}
         aria-describedby={error ? `${inputId}-error` : helperText ? `${inputId}-helper` : undefined}
+<<<<<<< HEAD
+        className={`w-full px-3 py-2 bg-surface text-ink placeholder:text-ink-faint text-sm rounded-md border transition-all duration-200 shadow-soft focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand focus:shadow-glow-brand focus:ring-offset-1 focus:ring-offset-canvas ${
+=======
         className={`w-full px-3 py-2 bg-surface text-ink placeholder:text-ink-faint text-sm rounded-md border transition-all duration-200 shadow-soft focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand focus:ring-offset-1 focus:ring-offset-canvas ${
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
           error ? 'border-danger focus:ring-danger' : 'border-border hover:border-border-strong'
         }`}
         {...props}

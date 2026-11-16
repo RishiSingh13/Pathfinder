@@ -580,7 +580,11 @@ export default function AdminRoadmapEditor() {
                         return (
                           <div
                             key={t.id}
+<<<<<<< HEAD
+                            className="p-3 rounded-lg border border-border bg-canvas hover:border-brand/40 hover:bg-surface-subtle hover:-translate-y-0.5 hover:shadow-soft flex items-center justify-between gap-3 transition-all duration-200"
+=======
                             className="p-3 rounded-lg border border-border bg-canvas hover:border-brand/30 flex items-center justify-between gap-3 transition-colors"
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
                           >
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2 flex-wrap mb-0.5">

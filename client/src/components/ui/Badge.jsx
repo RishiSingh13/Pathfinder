@@ -24,7 +24,11 @@ export default function Badge({
 
   return (
     <span
+<<<<<<< HEAD
+      className={`inline-flex items-center font-medium rounded-full border transition-all duration-200 hover:scale-[1.03] shadow-soft ${variants[variant] || variants.neutral} ${sizes[size] || sizes.sm} ${className}`}
+=======
       className={`inline-flex items-center font-medium rounded-full border transition-colors shadow-soft ${variants[variant] || variants.neutral} ${sizes[size] || sizes.sm} ${className}`}
+>>>>>>> ee7e2e0795074dda19dad019b6a85befd5f355d8
     >
       {children}
     </span>
